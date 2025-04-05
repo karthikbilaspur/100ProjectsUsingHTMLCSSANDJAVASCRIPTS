@@ -1,0 +1,14 @@
+from app import db, Product
+
+# Create a new product
+product1 = Product(name='Product 1', price=10.99, info='This is product 1', image='product1.jpg')
+product2 = Product(name='Product 2', price=9.99, info='This is product 2', image='product2.jpg')
+product3 = Product(name='Product 3', price=12.99, info='This is product 3', image='product3.jpg')
+
+# Add the products to the database
+db.session.add(product1)
+db.session.add(product2)
+db.session.add(product3)
+
+# Commit the changes
+db.session.commit()

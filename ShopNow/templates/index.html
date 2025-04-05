@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to our online store!</h1>
+  <p>Browse our selection of products below:</p>
+  <ul>
+    {% for product in products %}
+      <li>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.info }}</p>
+        <p>Price: {{ product.price }}</p>
+        <a href="{{ url_for('product', product_id=product.id) }}">View Product</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

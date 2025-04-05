@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .payment-form {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .payment-form input[type="text"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .payment-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .payment-form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <form method="POST" class="payment-form">
+            {{ form.hidden_tag() }}
+            {{ form.card_number.label }} {{ form.card_number() }}
+            {{ form.expiration_date.label }} {{ form.expiration_date() }}
+            {{ form.cvv.label }} {{ form.cvv() }}
+            {{ form.submit() }}
+        </form>
+    </div>
+</body>
+</html>

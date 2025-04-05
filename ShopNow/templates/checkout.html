@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Checkout</h1>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.card_number.label }} {{ form.card_number() }}
+    {{ form.exp_month.label }} {{ form.exp_month() }}
+    {{ form.exp_year.label }} {{ form.exp_year() }}
+    {{ form.cvc.label }} {{ form.cvc() }}
+    {{ form.submit() }}
+  </form>
+{% endblock %}
