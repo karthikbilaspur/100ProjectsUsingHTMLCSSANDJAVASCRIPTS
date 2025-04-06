@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Payment</h1>
+    <form method="post">
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number"><br><br>
+        <label for="exp_month">Expiration Month:</label>
+        <input type="text" id="exp_month" name="exp_month"><br><br>
+        <label for="exp_year">Expiration Year:</label>
+        <input type="text" id="exp_year" name="exp_year"><br><br>
+        <label for="cvc">CVC:</label>
+        <input type="text" id="cvc" name="cvc"><br><br>
+        <input type="submit" value="Pay Now">
+    </form>
+{% endblock %}

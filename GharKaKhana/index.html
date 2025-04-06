@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GharKaKhana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="menu">
+            <h1>Menu</h1>
+            <ul>
+                {% for item in menu_items %}
+                <li>
+                    <img src="{{ item.image }}" alt="{{ item.name }}">
+                    <h2>{{ item.name }}</h2>
+                    <p>{{ item.description }}</p>
+                    <p>Price: {{ item.price }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="about">
+            <h1>About Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </section>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button>Send</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 KarthikResutaran. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Shipping Quote</h1>
+    <p>Shipping Cost: {{ shipping_quote.cost }}</p>
+    <p>Shipping Method: {{ shipping_quote.method }}</p>
+    <p>Estimated Delivery Time: {{ shipping_quote.deliveryTime }}</p>
+{% endblock %}

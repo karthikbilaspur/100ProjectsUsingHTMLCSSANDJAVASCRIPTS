@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Shipping Label</h1>
+    <img src="{{ shipping_label.image }}" alt="Shipping Label">
+    <p>Tracking Number: {{ shipping_label.trackingNumber }}</p>
+{% endblock %}

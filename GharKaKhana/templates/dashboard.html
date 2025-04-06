@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <ul>
+        <li><a href="{{ url_for('dashboard_menu_items') }}">Menu Items</a></li>
+        <li><a href="{{ url_for('dashboard_contacts') }}">Contacts</a></li>
+    </ul>
+{% endblock %}
