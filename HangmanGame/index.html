@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="game-container">
+      <canvas id="hangman-canvas" width="400" height="200"></canvas>
+      <input id="guess-input" type="text" placeholder="Guess a letter" maxlength="1">
+      <button id="guess-button">Guess</button>
+      <p id="score">Score: 0</p>
+      <p id="incorrect-guesses">Incorrect Guesses: 0</p>
+      <p id="word"></p>
+      <button id="start-game-button">Start Game</button>
+      <button id="multiplayer-button">Multiplayer</button>
+    </div>
+    <div id="multiplayer-container" style="display: none;">
+      <input id="username-input" type="text" placeholder="Enter your username">
+      <button id="join-game-button">Join Game</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Hangman Game</p>
+    <ul>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Playlists</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="music-player">
+            <h2>Music Player</h2>
+            <audio controls>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <button id="play-button">Play</button>
+            <button id="pause-button">Pause</button>
+            <button id="next-button">Next</button>
+            <button id="previous-button">Previous</button>
+        </section>
+        <section id="playlist-manager">
+            <h2>Playlist Manager</h2>
+            <ul id="playlist-list">
+                <!-- playlist items will be generated dynamically -->
+            </ul>
+            <button id="add-playlist-button">Add Playlist</button>
+            <button id="remove-playlist-button">Remove Playlist</button>
+        </section>
+        <section id="recommendations">
+            <h2>Recommendations</h2>
+            <!-- index.html -->
+            <ul id="recommendations-list">
+                <!-- recommendations will be generated dynamically -->
+            </ul>
+            <button id="refresh-recommendations-button">Refresh Recommendations</button>
+        </section>
+        <section id="search-bar">
+            <h2>Search Bar</h2>
+            <input type="text" id="search-input" placeholder="Search for music...">
+            <button id="search-button">Search</button>
+        </section>
+        <section id="user-profile">
+            <h2>User Profile</h2>
+            <p id="user-name">Username: Guest</p>
+            <button id="logout-button">Logout</button>
+        </section>
+        <section id="discover">
+            <h2>Discover</h2>
+            <ul id="discover-list">
+                <!-- discover items will be generated dynamically -->
+            </ul>
+        </section>
+        <section id="settings">
+            <h2>Settings</h2>
+            <button id="settings-button">Settings</button>
+        </section>
+        <section id="footer">
+            <p>&copy; 2025 Spotify Clone</p>
+        </section>
+    </main>
+
+<!-- search bar -->
+<input type="text" id="search-input" placeholder="Search for music, artists, and playlists">
+<button id="search-button">Search</button>
+
+<!-- music player -->
+<audio id="music-player" controls>
+  <source src="" type="audio/mp3">
+</audio>
+
+<!-- playlist editor -->
+<div id="playlist-editor">
+  <h2>Edit Playlist</h2>
+  <input type="text" id="playlist-name" placeholder="Enter playlist name">
+  <button id="add-song-button">Add Song</button>
+  <button id="remove-song-button">Remove Song</button>
+  <ul id="playlist-songs">
+    <!-- songs will be listed here -->
+  </ul>
+</div>
+
+<!-- rating system -->
+<div id="rating-system">
+  <h2>Rate this song</h2>
+  <input type="number" id="rating-input" min="1" max="5">
+  <button id="submit-rating-button">Submit Rating</button>
+</div>
+
+<!-- notification system -->
+<div id="notification-system">
+  <!-- notifications will be displayed here -->
+</div>
+    <footer>
+        <p>Follow us on social media!</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</body>
+</html>

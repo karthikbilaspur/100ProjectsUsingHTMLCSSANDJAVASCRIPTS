@@ -1,0 +1,249 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  header nav ul li {
+    margin-right: 20px;
+  }
+  
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  header nav a:hover {
+    color: #ccc;
+  }
+  
+  /* Game Container Styles */
+  
+  #game-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, #fff, #f7f7f7);
+  }
+  
+  /* Hangman Canvas Styles */
+  
+  #hangman-canvas {
+    border: 1px solid #333;
+    width: 400px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Guess Input and Button Styles */
+  
+  #guess-input {
+    width: 20px;
+    font-size: 24px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #guess-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #guess-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Score and Incorrect Guesses Styles */
+  
+  #score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #incorrect-guesses {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Multiplayer Container Styles */
+  
+  #multiplayer-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Leaderboard and Tutorial Styles */
+  
+  #leaderboard {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #leaderboard ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #leaderboard li {
+    margin-bottom: 10px;
+  }
+  
+  #tutorial {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #tutorial ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #tutorial li {
+        margin-bottom: 10px;
+      }
+      
+      /* Power-ups and Obstacles Styles */
+      
+      #power-ups {
+        margin-top: 20px;
+      }
+      
+      #power-ups ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #power-ups li {
+        margin-bottom: 10px;
+      }
+      
+      #obstacles {
+        margin-top: 20px;
+      }
+      
+      #obstacles ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #obstacles li {
+        margin-bottom: 10px;
+      }
+      
+      /* Footer Styles */
+      
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        clear: both;
+      }
+      
+      footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      footer li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      
+      footer a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      
+      footer a:hover {
+        color: #ccc;
+      }
+      
+      /* Responsive Design */
+      
+      @media (max-width: 768px) {
+        #game-container {
+          max-width: 600px;
+        }
+        #hangman-canvas {
+          width: 300px;
+          height: 150px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        #game-container {
+          max-width: 400px;
+        }
+        #hangman-canvas {
+          width: 200px;
+          height: 100px;
+        }
+    }

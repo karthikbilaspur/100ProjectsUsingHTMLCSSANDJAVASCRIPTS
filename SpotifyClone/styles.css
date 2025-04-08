@@ -1,0 +1,100 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+#music-player {
+    background-color: #fff;
+    padding: 1em;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#playlist-manager {
+    background-color: #fff;
+    padding: 1em;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar {
+    background-color: #fff;
+    padding: 1em;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#discover {
+    background-color: #fff;
+    padding: 1em;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#playlist-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist-list li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+#playlist-list li:last-child {
+    border-bottom: none;
+}
+
+#discover-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#discover-list li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+#discover-list li:last-child {
+    border-bottom: none;
+}
+
+#recommendations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#recommendations-list li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+#recommendations-list li:last-child {
+    border-bottom: none;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    clear: both;
+}
