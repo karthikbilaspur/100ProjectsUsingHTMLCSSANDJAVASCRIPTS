@@ -1,0 +1,14 @@
+<h1>Workout</h1>
+
+<ul>
+    {% for workout in workouts %}
+        <li>{{ workout.workout_type }} - {{ workout.workout_date }} - {{ workout.workout_time }} - {{ workout.workout_duration }}</li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add workout</button>
+</form>
+

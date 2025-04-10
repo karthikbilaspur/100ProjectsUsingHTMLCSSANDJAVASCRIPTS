@@ -1,0 +1,15 @@
+<!-- templates/nutrition.html -->
+
+<h1>Nutrition</h1>
+
+<ul>
+    {% for nutrition in nutrition %}
+        <li>{{ nutrition.food_type }} - {{ nutrition.serving_size }} - {{ nutrition.calories }} - {{ nutrition.protein }} - {{ nutrition.fat }} - {{ nutrition.carbohydrates }}</li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add nutrition</button>
+</form>

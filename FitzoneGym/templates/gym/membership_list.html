@@ -1,0 +1,9 @@
+<!-- templates/gym/membership_list.html -->
+
+<h1>Membership List</h1>
+
+<ul>
+    {% for membership in memberships %}
+        <li>{{ membership.name }} ({{ membership.email }})</li>
+    {% endfor %}
+</ul>

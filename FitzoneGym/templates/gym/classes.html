@@ -1,0 +1,23 @@
+<!-- templates/gym/classes.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Classes</h1>
+        <div class="row">
+            {% for class in classes %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ class.name }}</h5>
+                            <p class="card-text">{{ class.description }}</p>
+                            <p class="card-text">Duration: {{ class.duration }} minutes</p>
+                            <p class="card-text">Intensity: {{ class.intensity }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

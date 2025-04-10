@@ -1,0 +1,34 @@
+<!-- templates/gym/membership.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Membership</h1>
+        <p>Join our community today and start achieving your fitness goals!</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="membership_type">Membership Type:</label>
+                <select class="form-control" id="membership_type" name="membership_type" required>
+                    <option value="">Select a membership type</option>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Join Now</button>
+        </form>
+    </div>
+{% endblock %}
