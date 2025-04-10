@@ -1,0 +1,167 @@
+.game-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.game-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.game-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.game-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-content select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.game-content select:hover {
+    border-color: #aaa;
+}
+
+.game-content button[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.game-content button[type="submit"]:hover {
+    background-color: #444;
+}
+
+.game-result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.game-result p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-room {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-room ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-room li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-room li:last-child {
+    border-bottom: none;
+}
+
+.chat-room input[type="text"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-room input[type="text"]:focus {
+    border-color: #aaa;
+}
+
+.chat-room button[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-room button[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.game-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.game-header {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.game-content {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.game-result {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.chat-room {
+    animation: fadeIn 1s ease-in-out;
+}
