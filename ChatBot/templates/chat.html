@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Chat</h1>
+        <div id="chat-container">
+            <div id="chat-history">
+                {% for entity in entities %}
+                    <div class="chat-message">
+                        <strong>{{ entity[0] }}:</strong> {{ entity[1] }}
+                    </div>
+                {% endfor %}
+            </div>
+            <form id="chat-form" method="post" action="{{ url_for('chat') }}">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.input_text.label }} {{ form.input_text() }}
+                </div>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Disease Chatbot</p>
+    </footer>
+    // Validate input text
+    function validateInputText(inputText) {
+        if (inputText.trim() === '') {
+            alert('Please enter some text');
+            return false;
+        }
+        return true;
+    }
+    
+    // Add an event listener to the chat form
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputText = chatInput.value.trim();
+        if (validateInputText(inputText)) {
+            // Create a new chat message element
+            const chatMessage = createChatMessage(inputText, 'You');
+            chatHistory.appendChild(chatMessage);
+            animateChatMessage(chatMessage);
+            chatInput.value = '';
+    
+            // Send the input text to the server using AJAX
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input_text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const responseMessage = createChatMessage(data.response, 'Bot');
+                chatHistory.appendChild(responseMessage);
+                animateChatMessage(responseMessage);
+            })
+            .catch(error => console.error(error));
+        }
+    });
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

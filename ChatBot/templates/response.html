@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Response</h1>
+        <p>You entered: <strong>{{ input_text }}</strong></p>
+
+        {% if diseases %}
+            <h2>Potential Matches:</h2>
+            <ul>
+            {% for disease in diseases %}
+                <li>
+                    <h3>{{ disease.name }}</h3>
+                    <p><strong>Description:</strong> {{ disease.description }}</p>
+                    <p><strong>Symptoms:</strong> {{ disease.symptoms }}</p>
+                    <p><strong>Treatment:</strong> {{ disease.treatment }}</p>
+                    <hr>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matching diseases found based on your input.</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('chat') }}">Back to Chat</a></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Disease Chatbot</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
