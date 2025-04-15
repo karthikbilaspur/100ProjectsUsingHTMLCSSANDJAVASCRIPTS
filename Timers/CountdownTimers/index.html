@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timer-container">
+    <h1 id="timer-display">00:00</h1>
+    <input id="duration-input" type="number" placeholder="Enter duration in seconds">
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+    </select>
+    <button id="start-button">Start</button>
+    <button id="stop-button" disabled>Stop</button>
+    <button id="reset-button" disabled>Reset</button>
+    <button id="lap-button">Lap</button>
+    <ul id="lap-list"></ul>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Countdown Timer</p>
+    </div>
+  </footer>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

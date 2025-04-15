@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - News Website{% endblock %}
+
+{% block content %}
+    <h1>Search</h1>
+    <form method="GET" action="{{ url_for('search') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search for articles..." value="{{ query or '' }}">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    {% if query %}
+        <h2>Results for "{{ query }}"</h2>
+        <div class="article-list">
+            {% for article in results %}
+                <div class="card mb-4">
+                    {% if article.image %}
+                        <img src="{{ article.image }}" alt="{{ article.title }}" class="card-img-top" loading="lazy" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/default.jpg') }}'">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Image" class="card-img-top" loading="lazy">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ url_for('article', slug=article.slug) }}">{{ article.title }}</a></h5>
+                        <p class="card-text">{{ article.description }}</p>
+                        <p class="card-text"><small class="text-muted">Published on: {{ article.published_at.strftime('%Y-%m-%d') }}</small></p>
+                        <a href="{{ url_for('article', slug=article.slug) }}" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            {% else %}
+                <p>No articles found matching your search query.</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

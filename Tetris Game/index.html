@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <div class="score-container">
+            <span class="high-score">High Score: <span id="high-score">0</span></span>
+            <span class="current-score">Current Score: <span id="current-score">0</span></span>
+            <span class="time-taken">Time: <span id="time-taken">00:00</span></span>
+        </div>
+        <div class="controls-container">
+            <button class="control-button" id="left-button">Left</button>
+            <button class="control-button" id="right-button">Right</button>
+            <button class="control-button" id="down-button">Down</button>
+            <button class="control-button" id="rotate-button">Rotate</button>
+        </div>
+        <div class="social-sharing-container">
+            <button class="social-sharing-button" id="facebook-share-button"><i class="fab fa-facebook-f"></i></button>
+            <button class="social-sharing-button" id="twitter-share-button"><i class="fab fa-twitter"></i></button>
+            <button class="social-sharing-button" id="linkedin-share-button"><i class="fab fa-linkedin-in"></i></button>
+        </div>
+    </div>
+    <div class="game-over-container" id="game-over-container">
+        <span class="game-over-text">Game Over!</span>
+        <button class="restart-button" id="restart-button">Restart</button>
+    </div>
+    <script src="script.js"></script>
+    <footer class="footer"
+    <p>Created by Karthik</p>
+    <p>&copy; 2025 Tetris Game</p>
+    <p>All rights reserved.</p>
+</footer> 
+</body>
+</html>
+
+

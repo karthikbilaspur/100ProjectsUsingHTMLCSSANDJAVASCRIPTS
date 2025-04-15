@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - News Website{% endblock %}
+
+{% block content %}
+    <h1>Contact Us</h1>
+    <p>If you have any questions or feedback, please feel free to contact us using the form below.</p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-control-label") }}
+            {{ form.name(class="form-control") }}
+            {% for error in form.name.errors %}
+                <small class="form-text text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+                <small class="form-text text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.message.label(class="form-control-label") }}
+            {{ form.message(class="form-control", rows="5") }}
+            {% for error in form.message.errors %}
+                <small class="form-text text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+{% endblock %}

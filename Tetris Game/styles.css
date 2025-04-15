@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://source.unsplash.com/1600x900/?gaming,technology');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .game-container {
+    width: 300px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #tetris {
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+  }
+  
+  .score-container {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .high-score, .current-score, .time-taken {
+    margin-right: 20px;
+  }
+  
+  .controls-container {
+    margin-top: 20px;
+  }
+  
+  .control-button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .control-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .social-sharing-container {
+    margin-top: 20px;
+  }
+  
+  .social-sharing-button {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .social-sharing-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .game-over-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .game-over-text {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .restart-button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .restart-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Media Queries */
+  
+  @media only screen and (max-width: 768px) {
+    .game-container {
+      width: 250px;
+      margin: 20px auto;
+    }
+    .score-container {
+      font-size: 20px;
+    }
+    .control-button {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .game-container {
+      width: 200px;
+      margin: 10px auto;
+    }
+    .score-container {
+      font-size: 18px;
+    }
+    .control-button {
+      width: 30px;
+      height: 30px;
+    }
+    .social-sharing-button {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  
+  @media only screen and (max-width: 320px) {
+    .game-container {
+      width: 150px;
+      margin: 5px auto;
+    }
+    .score-container {
+      font-size: 16px;
+    }
+    .control-button {
+      width: 25px;
+      height: 25px;
+    }
+    .social-sharing-button {
+      width: 20px;
+      height: 20px;
+    }
+  }

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if category %}{{ category.name }} Articles - News Website{% else %}Articles - News Website{% endif %}{% endblock %}
+
+{% block content %}
+    <h1>{% if category %}{{ category.name }} Articles{% else %}All Articles{% endif %}</h1>
+    <div class="article-list">
+        {% for article in articles.items %}
+            <div class="card mb-4">
+                {% if article.image %}
+                    <img src="{{ article.image }}" alt="{{ article.title }}" class="card-img-top" loading="lazy" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/default.jpg') }}'">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Image" class="card-img-top" loading="lazy">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ url_for('article', slug=article.slug) }}">{{ article.title }}</a></h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <p class="card-text"><small class="text-muted">Published on: {{ article.published_at.strftime('%Y-%m-%d') }}</small></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('article', slug=article.slug) }}" class="btn btn-primary btn-sm">Read More</a>
+                        {% if current_user.is_authenticated %}
+                            <form action="{{ url_for('bookmark_article', article_id=article.id) }}" method="POST">
+                                <input type="hidden" name="csrf_token" value="{{ session['_csrf_token'] }}">
+                                <button type="submit" class="btn btn-outline-secondary btn-sm">Bookmark</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>No articles found in this category.</p>
+        {% endfor %}
+    </div>
+
+    <nav aria-label="Article Pagination">
+        <ul class="pagination justify-content-center">
+            {% if articles.has_prev %}
+                <li class="page-item"><a class="page-link" href="{{ url_for(request.endpoint, page=articles.prev_num, slug=category.slug if category else None) }}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">Previous</span></li>
+            {% endif %}
+            {% for page_num in articles.iter_pages(left_edge=1, right_edge=2, left_current=2, right_current=3) %}
+                {% if page_num %}
+                    {% if articles.page == page_num %}
+                        <li class="page-item active"><span class="page-link">{{ page_num }}<span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ url_for(request.endpoint, page=page_num, slug=category.slug if category else None) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+            {% endfor %}
+            {% if articles.has_next %}
+                <li class="page-item"><a class="page-link" href="{{ url_for(request.endpoint, page=articles.next_num, slug=category.slug if category else None) }}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">Next</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
