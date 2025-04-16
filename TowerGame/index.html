@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="tower"></div>
+    </div>
+    <button id="add-block">Add Block</button>
+    <button id="restart-game" style="display: none;">Restart Game</button>
+    <div id="score">Score: 0</div>
+    <div id="level">Level: 1</div>
+    <div id="high-score">High Score: 0</div>
+    <div id="tutorial" style="display: none;">Welcome to the Tower Game! Click the "Add Block" button to start building.</div>
+    <div id="customization-options">
+        <label for="block-color">Block Color:</label>
+        <input type="color" id="block-color" value="#FF0000">
+        <label for="tower-design">Tower Design:</label>
+        <select id="tower-design">
+            <option value="default">Default</option>
+            <option value="modern">Modern</option>
+            <option value="classic">Classic</option>
+        </select>
+    </div>
+    <audio id="background-music" src="background-music.mp3" loop></audio>
+    <script src="script.js"></script>
+</body>
+</html>

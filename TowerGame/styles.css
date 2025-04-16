@@ -1,0 +1,51 @@
+.game-container {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    border: 1px solid black;
+    margin: auto;
+    overflow: hidden;
+}
+
+.tower {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.block {
+    position: absolute;
+    height: 20px;
+    background-color: red;
+    transition: left 0.5s;
+}
+
+.fall {
+    animation: fall 2s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+#score, #level, #high-score {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+#tutorial {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+#customization-options {
+    margin: 10px;
+}
