@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Word Counter Tool</h1>
+        <textarea id="text-area" placeholder="Enter your text here..."></textarea>
+        <button id="clear-button">Clear</button>
+        <button id="save-button">Save</button>
+        <button id="load-button">Load</button>
+        <button id="copy-button">Copy Statistics</button>
+        <button id="export-button">Export</button>
+        <button id="theme-toggle-button">Toggle Theme</button>
+        <div class="stats">
+            <h2>Statistics</h2>
+            <ul>
+                <li id="word-count">Words: 0</li>
+                <li id="char-count">Characters: 0</li>
+                <li id="char-count-with-spaces">Characters (with spaces): 0</li>
+                <li id="sentence-count">Sentences: 0</li>
+                <li id="paragraph-count">Paragraphs: 0</li>
+                <li id="reading-time">Reading Time: 0 minutes</li>
+                <li id="readability-score">Readability Score: 0</li>
+                <li id="tone-and-sentiment">Tone and Sentiment: Neutral</li>
+            </ul>
+        </div>
+        <div id="word-frequency-list">
+            <h2>Word Frequency</h2>
+            <ul></ul>
+        </div>
+        <div id="sentence-structure-analysis">
+            <h2>Sentence Structure Analysis</h2>
+            <ul></ul>
+        </div>
+        <div id="history">
+            <h2>History</h2>
+            <ul id="history-list"></ul>
+        </div>
+        <label for="reading-speed">Reading Speed (words per minute):</label>
+        <input type="number" id="reading-speed" value="200">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
