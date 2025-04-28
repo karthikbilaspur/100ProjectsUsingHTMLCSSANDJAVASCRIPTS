@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="circle-container"></div>
+        <div class="control-panel">
+            <label for="speed">Speed:</label>
+            <input type="range" id="speed" min="0.01" max="0.1" step="0.01" value="0.05">
+            <br>
+            <label for="direction">Direction:</label>
+            <select id="direction">
+                <option value="clockwise">Clockwise</option>
+                <option value="counter-clockwise">Counter-Clockwise</option>
+            </select>
+            <br>
+            <button id="toggle-sound">Toggle Sound</button>
+            <button id="toggle-3d">Toggle 3D</button>
+            <button id="toggle-physics">Toggle Physics</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

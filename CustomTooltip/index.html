@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enhanced Tooltip Example</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="social-links">
+        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container mt-5">
+    <h1>Enhanced Tooltip Example</h1>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top" aria-label="Tooltip on top">
+      Tooltip on top
+    </button>
+    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tooltip on right" data-tooltip-type="success" aria-label="Tooltip on right">
+      Tooltip on right (success)
+    </button>
+    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" data-tooltip-type="error" aria-label="Tooltip on bottom">
+      Tooltip on bottom (error)
+    </button>
+  </div>
+  <footer>
+    <p>&copy; 2025 Enhanced Tooltip Example. All rights reserved.</p>
+    <ul class="social-links">
+      <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Radio and Camera</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Vintage Radio and Camera</h1>
+    </header>
+    <main>
+        <section class="radio">
+            <h2>Radio</h2>
+            <div class="controls">
+                <button class="play-button"><i class="fas fa-play"></i> Play</button>
+                <button class="pause-button"><i class="fas fa-pause"></i> Pause</button>
+                <input type="range" class="volume-slider" min="0" max="100" value="50">
+                <span class="volume-level">Volume: 50%</span>
+            </div>
+            <canvas class="visualizer" width="400" height="200"></canvas>
+        </section>
+        <section class="camera">
+            <h2>Camera</h2>
+            <video class="camera-feed" width="400" height="300"></video>
+            <button class="take-photo-button"><i class="fas fa-camera"></i> Take Photo</button>
+            <canvas class="photo-preview" width="400" height="300"></canvas>
+            <div class="social-media-sharing">
+                <button class="share-facebook-button"><i class="fab fa-facebook-f"></i> Share on Facebook</button>
+                <button class="share-twitter-button"><i class="fab fa-twitter"></i> Share on Twitter</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

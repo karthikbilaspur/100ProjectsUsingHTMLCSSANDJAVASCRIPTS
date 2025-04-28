@@ -1,0 +1,241 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  /* Navigation Styles */
+  
+  .nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav li {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a:hover {
+    color: #ccc;
+  }
+  
+  .hero {
+    background-image: linear-gradient(to bottom, #333, #444);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Classes Styles */
+  
+  .classes {
+    padding: 2rem;
+    background-color: #f7f7f7;
+  }
+  
+  .class-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .class-card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    width: calc(25% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .class-card h3 {
+    margin-top: 0;
+  }
+  
+  /* Trainers Styles */
+  
+  .trainers {
+    padding: 2rem;
+    background-color: #f7f7f7;
+  }
+  
+  .trainer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .trainer-card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    width: calc(25% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trainer-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Membership Styles */
+  
+  .membership {
+    padding: 2rem;
+    background-color: #f7f7f7;
+  }
+  
+  .membership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .membership-card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    width: calc(25% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contact Styles */
+  
+  .contact {
+    padding: 2rem;
+    background-color: #f7f7f7;
+  }
+  
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ 
+  /* Footer Styles */
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    clear: both;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    margin: 1rem;
+    width: calc(33.33% - 2rem);
+  }
+  
+  .footer-section h3 {
+    margin-top: 0;
+  }
+  
+  .social-media {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .social-media li {
+    margin-right: 10px;
+  }
+  
+  .social-media a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .copyright {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 1200px) {
+    .class-card, .trainer-card, .membership-card {
+      width: calc(33.33% - 2rem);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .class-card, .trainer-card, .membership-card {
+      width: calc(50% - 2rem);
+    }
+    .nav ul {
+      flex-direction: column;
+    }
+    .nav li {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .class-card, .trainer-card, .membership-card {
+      width: 100%;
+    }
+    .hero {
+      height: 50vh;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .nav {
+      padding: 0.5rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+  }
+  

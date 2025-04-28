@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/stepper.js@1.6.0/dist/css/stepper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/filepond@4.30.4/dist/filepond.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div id="stepper" class="stepper">
+            <!-- Step 1 -->
+            <div class="step" data-step="1">
+                <h2>Contact Information</h2>
+                <input type="text" id="name" name="name" placeholder="Name">
+                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+            </div>
+            <!-- Step 2 -->
+            <div class="step" data-step="2">
+                <h2>Feedback</h2>
+                <div class="rating">
+                    <span class="fa fa-star" data-rating="1"></span>
+                    <span class="fa fa-star" data-rating="2"></span>
+                    <span class="fa fa-star" data-rating="3"></span>
+                    <span class="fa fa-star" data-rating="4"></span>
+                    <span class="fa fa-star" data-rating="5"></span>
+                </div>
+                <textarea id="feedback" name="feedback" placeholder="Feedback"></textarea>
+                <input type="file" id="file" name="file" multiple>
+            </div>
+            <!-- Step 3 -->
+            <div class="step" data-step="3">
+                <h2>Submit</h2>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+        <div id="progress-bar" class="progress-bar"></div>
+        <div id="loading-animation" class="loading-animation"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stepper.js@1.6.0/dist/js/stepper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.13/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/filepond@4.30.4/dist/filepond.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

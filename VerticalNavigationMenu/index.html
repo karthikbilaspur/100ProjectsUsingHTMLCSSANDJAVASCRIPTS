@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="vertical-nav">
+      <ul>
+        <li><a href="#daily-tasks">Daily Tasks</a></li>
+        <li><a href="#upcoming-events">Upcoming Events</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+        <a href="https://www.twitter.com" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+      </div>
+    </nav>
+    <main class="content">
+      <section id="daily-tasks">
+        <h2>Daily Tasks</h2>
+        <form id="task-form">
+          <input type="text" id="task-input" placeholder="Add task">
+          <input type="date" id="due-date-input" placeholder="Due date">
+          <input type="time" id="due-time-input" placeholder="Due time">
+          <select id="priority-select">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <select id="recurring-select">
+            <option value="None">None</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+          </select>
+          <button id="add-task-btn">Add</button>
+        </form>
+        <input type="search" id="search-input" placeholder="Search tasks">
+        <ul id="task-list"></ul>
+      </section>
+      <section id="upcoming-events">
+        <h2>Upcoming Events</h2>
+        <ul>
+          <li>Event 1: Birthday on March 12</li>
+          <li>Event 2: Meeting on March 15</li>
+        </ul>
+      </section>
+      <section id="notes">
+        <h2>Notes</h2>
+        <select id="note-folder-select">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+        </select>
+        <input type="text" id="note-tag-input" placeholder="Add tag">
+        <textarea id="note-input" placeholder="Add note"></textarea>
+        <button id="save-note-btn">Save</button>
+        <ul id="note-list"></ul>
+      </section>
+      <section id="settings">
+        <h2>Settings</h2>
+        <label for="reminder-select">Reminders:</label>
+        <select id="reminder-select">
+          <option value="None">None</option>
+          <option value="1 hour">1 hour</option>
+          <option value="2 hours">2 hours</option>
+        </select>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 Daily Planner. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

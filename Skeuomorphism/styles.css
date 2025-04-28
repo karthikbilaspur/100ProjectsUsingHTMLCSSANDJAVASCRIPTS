@@ -1,0 +1,126 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.radio, .camera {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 45%;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.play-button, .pause-button, .take-photo-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.play-button:hover, .pause-button:hover, .take-photo-button:hover {
+    background-color: #444;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.visualizer {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.camera-feed {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.photo-preview {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.social-media-sharing {
+    margin-top: 20px;
+}
+
+.share-facebook-button, .share-twitter-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.share-facebook-button:hover, .share-twitter-button:hover {
+    background-color: #444;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .radio, .camera {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .radio, .camera {
+        padding: 10px;
+    }
+    .controls {
+        margin-bottom: 10px;
+    }
+}

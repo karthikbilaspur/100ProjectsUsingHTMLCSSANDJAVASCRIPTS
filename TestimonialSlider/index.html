@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Testimonial Slider</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="testimonial-slider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client Image">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                        <h3>Emily Doe</h3>
+                        <span>Yoga Enthusiast</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Image">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                        <h3>John Smith</h3>
+                        <span>Fitness Coach</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Client Image">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                        <h3>Sarah Lee</h3>
+                        <span>Pilates Instructor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rating-system">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+        </div>
+    </div>
+    <!-- More testimonial cards -->
+</div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev custom-prev"></div>
+            <div class="swiper-button-next custom-next"></div>
+        </div>
+    </div>
+    <div class="filter-options">
+        <select id="category-filter">
+            <option value="all">All</option>
+            <option value="success-stories">Success Stories</option>
+            <option value="customer-feedback">Customer Feedback</option>
+        </select>
+        <select id="rating-filter">
+            <option value="all">All</option>
+            <option value="5-stars">5 Stars</option>
+            <option value="4-stars">4 Stars</option>
+            <option value="3-stars">3 Stars</option>
+            <option value="2-stars">2 Stars</option>
+            <option value="1-star">1 Star</option>
+        </select>
+    </div>
+    <input type="search" id="testimonial-search" placeholder="Search testimonials...">
+    <form id="testimonial-submission-form">
+        <input type="text" id="testimonial-name" placeholder="Name">
+        <textarea id="testimonial-text" placeholder="Testimonial"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    <footer>
+        <div class="social-media-links">
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2025 Fitness Studio. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
