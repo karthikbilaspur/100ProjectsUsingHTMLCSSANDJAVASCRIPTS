@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" id="login-form">
+            <h2>Login</h2>
+            <div class="input-group">
+                <input type="text" id="username" required>
+                <label for="username">Username or Email</label>
+                <span class="error-message" id="username-error"></span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+                <span class="error-message" id="password-error"></span>
+                <span class="password-toggle" id="password-toggle">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </span>
+                <span class="password-strength" id="password-strength"></span>
+            </div>
+            <div class="form-actions">
+                <button type="submit" id="submit-btn">Login</button>
+                <button type="reset" id="reset-btn">Reset</button>
+            </div>
+            <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+            <p class="forgot-password">Forgot Password? <a href="#" id="forgot-password-link">Reset</a></p>
+            <p class="captcha-info">Please verify you're not a robot:</p>
+            <div class="captcha-container" id="captcha-container"></div>
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+        </form>
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loader"></div>
+        </div>
+        <div class="success-message" id="success-message">Login successful!</div>
+        <div class="error-message-global" id="error-message-global"></div>
+        <div class="forgot-password-modal" id="forgot-password-modal">
+            <h2>Forgot Password</h2>
+            <p>Enter your email address to reset your password:</p>
+            <input type="email" id="forgot-password-email" required>
+            <button id="forgot-password-submit">Submit</button>
+            <button id="forgot-password-cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

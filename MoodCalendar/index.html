@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prev-month">Prev</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">Next</button>
+            <button id="theme-toggle">Toggle Theme</button>
+        </div>
+        <div class="calendar">
+            <!-- Calendar will be generated here -->
+        </div>
+        <div class="mood-legend">
+            <span>Happy <i class="fas fa-smile"></i></span>
+            <span>Sad <i class="fas fa-frown"></i></span>
+            <span>Neutral <i class="fas fa-meh"></i></span>
+        </div>
+        <div class="social-share">
+            <button id="share-facebook">Share on Facebook</button>
+            <button id="share-twitter">Share on Twitter</button>
+            <button id="share-linkedin">Share on LinkedIn</button>
+        </div>
+    </div>
+    <div class="mood-selector">
+        <input type="radio" id="happy" name="mood" value="happy">
+        <label for="happy">Happy</label>
+        <input type="radio" id="sad" name="mood" value="sad">
+        <label for="sad">Sad</label>
+        <input type="radio" id="neutral" name="mood" value="neutral">
+        <label for="neutral">Neutral</label>
+    </div>
+    <div class="mood-notes">
+        <textarea id="mood-note" placeholder="Add a note..."></textarea>
+        <button id="save-note">Save Note</button>
+        <div id="note-display"></div>
+    </div>
+    <div class="mood-stats">
+        <h2>Mood Statistics</h2>
+        <p id="most-common-mood"></p>
+        <p id="mood-trend"></p>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Mood Calendar. All rights reserved.</p>
+        <p>Created by Karthik </p> 
+    </footer>    
+</body>
+</html>

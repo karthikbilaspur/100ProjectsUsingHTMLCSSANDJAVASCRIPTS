@@ -1,0 +1,143 @@
+.calendar-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+   transition: background-color 0.3s ease-in-out;
+
+}
+
+.day:hover {
+    background-color: #ccc;
+}
+
+.happy {
+    background-color: #ffff00;
+}
+
+.sad {
+    background-color: #87ceeb;
+}
+
+.neutral {
+    background-color: #808080;
+}
+
+.mood-legend {
+    margin-top: 20px;
+}
+
+.mood-legend span {
+    margin-right: 20px;
+}
+
+
+.mood-selector {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mood-notes {
+    margin-top: 20px;
+}
+
+#mood-note {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#save-note {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#note-display {
+    margin-top: 10px;
+}
+
+.mood-stats {
+    margin-top: 20px;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme .calendar-container {
+    background-color: #444;
+    border-color: #555;
+}
+
+.dark-theme .day {
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+    .calendar-container {
+        max-width: 90%;
+    }
+    .calendar {
+        grid-template-columns: repeat(7, 40px);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .calendar-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .calendar {
+        grid-template-columns: repeat(7, 30px);
+    }
+    .day {
+        width: 30px;
+        height: 30px;
+    }
+}
