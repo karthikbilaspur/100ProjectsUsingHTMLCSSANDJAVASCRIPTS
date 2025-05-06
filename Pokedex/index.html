@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pokedex</h1>
+    </header>
+    <main>
+        <section class="pokedex">
+            <div class="pokedex-screen">
+                <div class="pokemon-info">
+                    <h2 id="pokemon-name"></h2>
+                    <p id="pokemon-description"></p>
+                    <p id="pokemon-types"></p>
+                    <p id="pokemon-details"></p>
+                    <p id="pokemon-strengths"></p>
+                    <p id="pokemon-weaknesses"></p>
+                    <p id="pokemon-stats"></p>
+                    <p id="pokemon-abilities"></p>
+                    <p id="pokemon-evolution-chain"></p>
+                </div>
+                <img id="pokemon-image" src="" alt="Pokemon Image">
+            </div>
+            <div class="pokedex-controls">
+                <button id="previous-button">Previous</button>
+                <button id="next-button">Next</button>
+                <button id="random-button">Random</button>
+                <button id="compare-button">Compare</button>
+            </div>
+            <div class="pokedex-filter">
+                <select id="pokemon-filter">
+                    <option value="all">All</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <!-- Add more types here -->
+                </select>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for a Pokémon...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="compare-container" style="display: none;">
+                <h2>Compare Pokémon</h2>
+                <select id="compare-select-1"></select>
+                <select id="compare-select-2"></select>
+                <button id="compare-stats-button">Compare Stats</button>
+                <div id="compare-stats-result"></div>
+            </div>
+        </section>
+        <div class="poke-container" id="poke-container"></div>
+        <!-- Search bar -->
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search for a Pokémon...">
+    <button id="search-button">Search</button>
+</div>
+
+<!-- User profile -->
+<div class="user-profile">
+    <h2>User Profile</h2>
+    <p>Username: <span id="username"></span></p>
+    <p>Pokémon Collection:</p>
+    <ul id="pokemon-collection"></ul>
+</div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
