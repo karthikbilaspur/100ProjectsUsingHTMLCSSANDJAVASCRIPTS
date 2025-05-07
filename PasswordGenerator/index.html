@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="password-generator">
+        <h2>Advanced Password Generator</h2>
+        <form id="password-form">
+            <div class="form-group">
+                <label for="password-length">Password Length:</label>
+                <input type="number" id="password-length" value="12" min="8" max="128" required>
+                <span class="error-message" id="password-length-error"></span>
+            </div>
+            <div class="form-group">
+                <label>Character Types:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="uppercase" checked>
+                    <label for="uppercase">Uppercase Letters</label>
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">Lowercase Letters</label>
+                    <input type="checkbox" id="numbers" checked>
+                    <label for="numbers">Numbers</label>
+                    <input type="checkbox" id="special" checked>
+                    <label for="special">Special Characters</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="special-characters">Custom Special Characters:</label>
+                <input type="text" id="special-characters" value="!@#$%^&*()_+~`|}{[]:;?><,./-=">
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="exclude-similar">
+                <label for="exclude-similar">Exclude similar characters (e.g., "1" and "I", "0" and "O")</label>
+            </div>
+            <div class="button-group">
+                <button id="generate-password" type="submit">Generate Password</button>
+                <button id="copy-password" type="button">Copy Password</button>
+                <button id="generate-multiple" type="button">Generate Multiple Passwords</button>
+            </div>
+            <div class="form-group">
+                <label for="password-count">Number of Passwords:</label>
+                <input type="number" id="password-count" value="5" min="1" max="10" required>
+                <span class="error-message" id="password-count-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="password-history">Password History:</label>
+                <textarea id="password-history" readonly></textarea>
+            </div>
+            <div class="form-group">
+                <label for="password-strength">Password Strength:</label>
+                <progress id="password-strength" value="0" max="100"></progress>
+                <span id="password-strength-text"></span>
+            </div>
+            <div class="form-group">
+                <label for="password-entropy">Password Entropy:</label>
+                <span id="password-entropy"></span>
+            </div>
+            <p id="password-output"></p>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
