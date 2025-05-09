@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Form</title>
+    <link rel="stylesheet" href="support-form.css">
+</head>
+<body>
+    <div class="support-form-container">
+        <h2>Support Form</h2>
+        <form id="support-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocomplete="name" aria-label="Name" aria-required="true" required>
+                <span class="error-message" id="name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="email" aria-label="Email" aria-required="true" required>
+                <span class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="issue-category">Issue Category:</label>
+                <select id="issue-category" name="issue-category" required>
+                    <option value="">Select Category</option>
+                    <option value="technical">Technical</option>
+                    <option value="billing">Billing</option>
+                    <option value="general">General</option>
+                </select>
+                <span class="error-message" id="issue-category-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="priority-level">Priority Level:</label>
+                <select id="priority-level" name="priority-level" required>
+                    <option value="">Select Priority Level</option>
+                </select>
+                <span class="error-message" id="priority-level-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="description">Detailed Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <span class="error-message" id="description-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="attachment">Attach File:</label>
+                <input type="file" id="attachment" name="attachment" accept=".jpg, .jpeg, .png, .pdf" required>
+                <span class="error-message" id="attachment-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="cc-email">CC Email:</label>
+                <input type="email" id="cc-email" name="cc-email">
+            </div>
+            <div class="form-group">
+                <label for="bcc-email">BCC Email:</label>
+                <input type="email" id="bcc-email" name="bcc-email">
+            </div>
+            <div id="captcha-container" class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            <button type="submit" id="submit-btn">Submit</button>
+            <button type="reset" id="reset-btn">Reset</button>
+            <div id="progress-indicator" style="display: none;">Submitting...</div>
+            <div id="success-message" style="display: none;">Form submitted successfully!</div>
+            <div id="error-message" style="display: none;">Error submitting form</div>
+        </form>
+        <select id="language-selector">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+        <div id="chatbot-container">
+            <h2>Chatbot</h2>
+            <input type="text" id="chatbot-input" placeholder="Type a message...">
+            <button id="chatbot-send-btn">Send</button>
+            <div id="chatbot-response"></div>
+        </div>
+    </div>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
