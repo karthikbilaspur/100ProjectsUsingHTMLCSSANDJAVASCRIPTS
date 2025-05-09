@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Project Voting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="Vote for the best project">
+    <meta name="keywords" content="voting, project, best project">
+    <meta name="author" content="Your Name">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#admin-panel">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Vote for the Best Project</h1>
+        <section id="projects" class="projects">
+            <div class="project">
+                <h2>School Management System (MERN)</h2>
+                <p>A comprehensive school management system built using the MERN stack, allowing administrators to manage student records, teachers, and classes.</p>
+                <button class="vote-btn" data-project="project1">Vote</button>
+                <span class="vote-count" id="project1-votes">0</span> votes
+            </div>
+            <div class="project">
+                <h2>Python-Based Game</h2>
+                <p>A fun and engaging game built using Python, featuring exciting gameplay and challenging levels.</p>
+                <button class="vote-btn" data-project="project2">Vote</button>
+                <span class="vote-count" id="project2-votes">0</span> votes
+            </div>
+            <div class="project">
+                <h2>Weather Forecasting App (React Native)</h2>
+                <p>A mobile app built using React Native, providing accurate and up-to-date weather forecasts for locations around the world.</p>
+                <button class="vote-btn" data-project="project3">Vote</button>
+                <span class="vote-count" id="project3-votes">0</span> votes
+            </div>
+            <div class="project">
+                <h2>E-commerce Website (Shopify)</h2>
+                <p>A fully functional e-commerce website built using Shopify, allowing customers to browse and purchase products online.</p>
+                <button class="vote-btn" data-project="project4">Vote</button>
+                <span class="vote-count" id="project4-votes">0</span> votes
+            </div>
+            <div class="project">
+                <h2>Chatbot (Node.js)</h2>
+                <p>A conversational AI chatbot built using Node.js, providing users with helpful and informative responses.</p>
+                <button class="vote-btn" data-project="project5">Vote</button>
+                <span class="vote-count" id="project5-votes">0</span> votes
+            </div>
+            <div class="project">
+                <h2>Personal Finance Manager (Angular)</h2>
+                <p>A web application built using Angular, allowing users to track their finances and make informed financial decisions.</p>
+                <button class="vote-btn" data-project="project6">Vote</button>
+                <span class="vote-count" id="project6-votes">0</span> votes
+            </div>
+        </section>
+        <section id="results" class="results">
+            <h2>Current Results</h2>
+            <canvas id="results-chart"></canvas>
+        </section>
+        <section id="admin-panel" class="admin-panel">
+            <h2>Admin Panel</h2>
+            <button id="reset-votes-btn">Reset Votes</button>
+            <button id="view-votes-btn">View Votes</button>
+        </section>
+        <div class="alert" id="alert"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 V.Karthik</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
