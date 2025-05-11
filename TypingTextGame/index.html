@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-header">
+      <h1>Typing Game</h1>
+      <p id="timer">Time: 60s</p>
+      <p id="wpm">WPM: 0</p>
+      <p id="accuracy">Accuracy: 0%</p>
+      <p id="high-score">High Score: 0</p>
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
+      <select id="difficulty-select">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div class="game-content">
+      <p id="text-to-type"></p>
+      <textarea id="typing-area" autofocus></textarea>
+      <div id="virtual-keyboard"></div>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+    <button id="start-btn">Start</button>
+    <button id="reset-btn" disabled>Reset</button>
+    <button id="practice-btn">Practice</button>
+    <button id="share-btn">Share</button>
+  </div>
+
+  <script src="script.js"></script>
+  <footer>
+    <p>Created by karthik</p>
+    <p>Note that this is a simple typing game and may not cover all edge cases or provide the best user experience. 
+    Feel free to modify and improve it as needed. Any suggestions for improvements will be appreciated. 
+    Please put it in comment section to share any ideas you have </p>
+    </footer>
+</body>
+</html>
