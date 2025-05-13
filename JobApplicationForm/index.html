@@ -1,0 +1,73 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application and Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Job Application and Registration Form</h1>
+  <form id="job-application-form">
+    <!-- Step 1: Personal Details -->
+    <section id="step1">
+      <h2>Personal Details</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" autocomplete="address-level2"><br><br>
+      <label for="job-title">Job Title:</label>
+      <input type="text" id="job-title" name="job-title"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <div id="password-strength-meter"></div>
+      <button id="next-step1" type="button">Next</button>
+    </section>
+
+    <!-- Step 2: Work Experience -->
+    <section id="step2" style="display: none;">
+      <h2>Work Experience</h2>
+      <div id="work-experience-container">
+        <!-- Dynamic fields will be added here -->
+      </div>
+      <button id="add-work-experience" type="button">Add Work Experience</button>
+      <button id="next-step2" type="button">Next</button>
+      <button id="prev-step2" type="button">Previous</button>
+    </section>
+
+    <!-- Step 3: Skills -->
+    <section id="step3" style="display: none;">
+      <h2>Skills</h2>
+      <div id="skills-container">
+        <!-- Dynamic fields will be added here -->
+      </div>
+      <button id="add-skill" type="button">Add Skill</button>
+      <button id="next-step3" type="button">Next</button>
+      <button id="prev-step3" type="button">Previous</button>
+    </section>
+
+    <!-- Step 4: Payment -->
+    <section id="step4" style="display: none;">
+      <h2>Payment</h2>
+      <label for="payment-method">Payment Method:</label>
+      <select id="payment-method" name="payment-method">
+        <option value="stripe">Stripe</option>
+        <option value="paypal">PayPal</option>
+      </select>
+      <div id="payment-form-container">
+        <!-- Payment form will be rendered here -->
+      </div>
+      <label for="resume">Resume:</label>
+      <input type="file" id="resume" name="resume"><br><br>
+      <label for="cover-letter">Cover Letter:</label>
+      <textarea id="cover-letter" name="cover-letter"></textarea>
+      <button id="submit-form" type="submit">Submit</button>
+      <button id="prev-step4" type="button">Previous</button>
+    </section>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
