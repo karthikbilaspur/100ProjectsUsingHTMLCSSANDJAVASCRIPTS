@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.social-media-links {
+    margin-top: 20px;
+}
+
+.social-media-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-media-links a:hover {
+    color: #ccc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.websites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.website-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.website-card h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.website-card a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.website-card a:hover {
+    color: #23527c;
+}
+
+/* Responsive design for different screen widths */
+@media (max-width: 768px) {
+    .websites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .websites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    #search-input {
+        width: 100%;
+    }
+    .social-media-links a {
+        font-size: 18px;
+    }
+}

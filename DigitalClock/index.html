@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="clock-container">
+    <div class="clock">
+      <div class="hours">
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+      </div>
+      <div class="colons colons-1">
+        <div class="colon"></div>
+        <div class="colon"></div>
+      </div>
+      <div class="minutes">
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+      </div>
+      <div class="colons colons-2">
+        <div class="colon"></div>
+        <div class="colon"></div>
+      </div>
+      <div class="seconds">
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+        <div class="digit">
+          <div class="segment segment-1 n0 n2 n3 n5 n6 n7 n8 n9"></div>
+          <div class="segment segment-2 n0 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-3 n0 n1 n2 n3 n4 n7 n8 n9"></div>
+          <div class="segment segment-4 n2 n3 n4 n5 n6 n8 n9"></div>
+          <div class="segment segment-5 n0 n2 n6 n8"></div>
+          <div class="segment segment-6 n0 n1 n3 n5 n4 n6 n7 n8 n9"></div>
+          <div class="segment segment-7 n0 n2 n3 n5 n6 n8 n9"></div>
+        </div>
+      </div>
+    </div>
+    <div class="social-sharing">
+      <a href="#" class="facebook-share"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="twitter-share"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#" class="whatsapp-share"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#" class="linkedin-share"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <div class="alarm-container">
+      <input type="time" id="alarm-time" />
+      <button id="set-alarm">Set Alarm</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
