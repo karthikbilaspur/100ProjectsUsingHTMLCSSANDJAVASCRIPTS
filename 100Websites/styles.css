@@ -11,10 +11,6 @@ header {
     text-align: center;
 }
 
-header h1 {
-    margin-top: 0;
-}
-
 #search-input {
     padding: 10px;
     font-size: 16px;
@@ -35,19 +31,7 @@ header h1 {
 }
 
 .social-media-links a:hover {
-    color: #ccc;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.websites-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    color: #337ab7;
 }
 
 .website-card {
@@ -72,21 +56,41 @@ header h1 {
     color: #23527c;
 }
 
-/* Responsive design for different screen widths */
-@media (max-width: 768px) {
-    .websites-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
+#websites-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-@media (max-width: 480px) {
-    .websites-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
+@media (max-width: 768px) {
     #search-input {
         width: 100%;
     }
     .social-media-links a {
         font-size: 18px;
     }
+}
+
+/* Add styles for loading animation, modal, and pagination */
+.loading-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #337ab7;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button {
+    margin: 0 10px;
 }
