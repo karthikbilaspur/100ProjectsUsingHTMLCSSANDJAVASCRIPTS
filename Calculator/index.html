@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#calculator-tab">Calculator</a></li>
+                <li><a href="#matrix-tab">Matrix Calculations</a></li>
+                <li><a href="#stats-tab">Statistical Analysis</a></li>
+                <li><a href="#graph-tab">Graphing</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="calculator-tab" class="tab-content">
+            <h2>Calculator</h2>
+            <div class="calculator">
+                <label for="display" class="visually-hidden">Calculator Display</label>
+                <input type="text" id="display" disabled placeholder="0" title="Calculator display">
+                <div class="buttons">
+                    <button class="btn" onclick="clearDisplay()">C</button>
+                    <button class="btn" onclick="backspace()">DEL</button>
+                    <button class="btn" onclick="memoryClear()">MC</button>
+                    <button class="btn" onclick="memoryRecall()">MR</button>
+                    <button class="btn" onclick="memoryAdd()">M+</button>
+                    <button class="btn" onclick="memorySubtract()">M-</button>
+                    <button class="btn" onclick="appendToDisplay('7')">7</button>
+                    <button class="btn" onclick="appendToDisplay('8')">8</button>
+                    <button class="btn" onclick="appendToDisplay('9')">9</button>
+                    <button class="btn" onclick="appendToDisplay('/')">/</button>
+                    <button class="btn" onclick="appendToDisplay('4')">4</button>
+                    <button class="btn" onclick="appendToDisplay('5')">5</button>
+                    <button class="btn" onclick="appendToDisplay('6')">6</button>
+                    <button class="btn" onclick="appendToDisplay('*')">*</button>
+                    <button class="btn" onclick="appendToDisplay('1')">1</button>
+                    <button class="btn" onclick="appendToDisplay('2')">2</button>
+                    <button class="btn" onclick="appendToDisplay('3')">3</button>
+                    <button class="btn" onclick="appendToDisplay('-')">-</button>
+                    <button class="btn" onclick="appendToDisplay('0')">0</button>
+                    <button class="btn" onclick="appendToDisplay('.')">.</button>
+                    <button class="btn" onclick="calculate()">=</button>
+                    <button class="btn" onclick="appendToDisplay('+')">+</button>
+                    <button class="btn" onclick="appendToDisplay('sin(')">sin</button>
+                    <button class="btn" onclick="appendToDisplay('cos(')">cos</button>
+                    <button class="btn" onclick="appendToDisplay('tan(')">tan</button>
+                    <button class="btn" onclick="appendToDisplay('log(')">log</button>
+                    <button class="btn" onclick="appendToDisplay('exp(')">exp</button>
+                    <button class="btn" onclick="appendToDisplay('sqrt(')">sqrt</button>
+                    <button class="btn" onclick="insertConstant('pi')">π</button>
+                    <button class="btn" onclick="insertConstant('e')">e</button>
+                </div>
+                <div class="unit-conversion">
+                    <label for="unit-from" class="visually-hidden">Convert from unit</label>
+                    <select id="unit-from" title="Convert from unit">
+                        <option value="length">Length</option>
+                        <option value="mass">Mass</option>
+                        <option value="time">Time</option>
+                    </select>
+                    <input type="number" id="unit-value" title="Value to convert" placeholder="Enter value">
+                    <label for="unit-to" class="visually-hidden">Convert to unit</label>
+                    <select id="unit-to" title="Convert to unit">
+                        <optgroup label="Length">
+                            <option value="meter">Meter</option>
+                            <option value="kilometer">Kilometer</option>
+                            <option value="centimeter">Centimeter</option>
+                            <option value="millimeter">Millimeter</option>
+                            <option value="mile">Mile</option>
+                            <option value="yard">Yard</option>
+                            <option value="foot">Foot</option>
+                            <option value="inch">Inch</option>
+                        </optgroup>
+                        <optgroup label="Mass">
+                            <option value="kilogram">Kilogram</option>
+                            <option value="gram">Gram</option>
+                            <option value="milligram">Milligram</option>
+                            <option value="ton">Ton</option>
+                            <option value="pound">Pound</option>
+                            <option value="ounce">Ounce</option>
+                        </optgroup>
+                        <optgroup label="Time">
+                            <option value="second">Second</option>
+                            <option value="millisecond">Millisecond</option>
+                            <option value="minute">Minute</option>
+                            <option value="hour">Hour</option>
+                            <option value="day">Day</option>
+                        </optgroup>
+                    </select>
+                    <button class="btn" onclick="convertUnits()">Convert</button>
+                </div>
+                <div class="history">
+                    <h2>Calculation History</h2>
+                    <ul id="history-list"></ul>
+                </div>
+            </div>
+        </section>
+        <section id="matrix-tab" class="tab-content">
+            <h2>Matrix Calculations</h2>
+            <input type="number" id="matrix-size" placeholder="Enter matrix size">
+            <button class="btn" onclick="createMatrix()">Create Matrix</button>
+            <div id="matrix-container"></div>
+            <button class="btn" onclick="calculateDeterminant()">Calculate Determinant</button>
+            <button class="btn" onclick="calculateInverse()">Calculate Inverse</button>
+            <div id="matrix-result"></div>
+        </section>
+        <section id="stats-tab" class="tab-content">
+            <h2>Statistical Analysis</h2>
+            <input type="text" id="stats-input" placeholder="Enter numbers separated by commas">
+            <button class="btn" onclick="calculateStats()">Calculate Stats</button>
+            <div id="stats-result"></div>
+        </section>
+        <section id="graph-tab" class="tab-content">
+            <h2>Graphing</h2>
+            <input type="text" id="graph-input" placeholder="Enter function of x">
+            <button class="btn" onclick="plotGraph()">Plot Graph</button>
+            <div id="graph-container"></div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@11.3.3/dist/math.min.js"></script>
+    <script src="script.js"></script>
+<footer>
+    <p>&copy; 2025 Advanced Calculator. All rights reserved.</p>
+    <p>Developed by Kathik</p>
+</footer>
+
+</body>
+</html>.
