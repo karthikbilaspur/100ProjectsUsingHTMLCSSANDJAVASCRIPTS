@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitForge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">FitForge</div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#about">About</a></li>
+            <li><button class="cta-btn" id="signup-btn">Sign Up</button></li>
+            <li><button class="cta-btn" id="login-btn-nav">Login</button></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="hero">
+            <h1>Transform Your Body, Elevate Your Life</h1>
+            <p>Get fit with our personalized fitness plans and expert guidance.</p>
+            <button class="cta-btn" id="get-started-btn">Get Started</button>
+        </div>
+    </header>
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Personalized Fitness Plans</h3>
+                <p>Get customized workout plans tailored to your goals and fitness level.</p>
+            </div>
+            <div class="card">
+                <h3>Virtual Fitness Coaching</h3>
+                <p>Work out with certified trainers from the comfort of your own home.</p>
+            </div>
+            <div class="card">
+                <h3>Community Support</h3>
+                <p>Connect with like-minded individuals and get support on your fitness journey.</p>
+            </div>
+            <div class="card">
+                <h3>Progress Tracking</h3>
+                <p>Track your progress and celebrate your successes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add a registration and login form -->
+    <div class="auth-container" id="auth-container">
+        <form id="register-form">
+            <h2>Register</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="register-btn" type="submit">Register</button>
+            <p>Already have an account? <span id="login-link">Login</span></p>
+        </form>
+        <form id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button id="login-btn" type="submit">Login</button>
+            <p>Don't have an account? <span id="signup-link">Sign Up</span></p>
+        </form>
+    </div>
+
+    <!-- Add a workout plan generator -->
+    <section id="workout-plan">
+        <h2>Generate the Workout Plan</h2>
+        <form id="workout-plan-form">
+            <label for="fitness-goals">Fitness Goals:</label>
+            <select id="fitness-goals">
+                <option value="weight-loss">Weight Loss</option>
+                <option value="muscle-gain">Muscle Gain</option>
+                <option value="endurance">Endurance</option>
+            </select>
+            <label for="current-fitness-level">Current Fitness Level:</label>
+            <select id="current-fitness-level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+            <label for="available-workout-time">Available Workout Time:</label>
+            <input type="number" id="available-workout-time" placeholder="Minutes">
+            <button id="generate-workout-plan-btn" type="submit">Generate Workout Plan</button>
+        </form>
+        <div id="workout-plan-output"></div>
+    </section>
+
+    <!-- Add a progress tracking feature -->
+    <section id="progress-tracking">
+        <h2>Track Your Progress</h2>
+        <form id="progress-tracking-form">
+            <label for="workout-type">Workout Type:</label>
+            <select id="workout-type">
+                <option value="cardio">Cardio</option>
+                <option value="strength-training">Strength Training</option>
+                <option value="yoga">Yoga</option>
+            </select>
+            <label for="workout-duration">Workout Duration:</label>
+            <input type="number" id="workout-duration" placeholder="Minutes">
+            <button id="log-workout-btn" type="submit">Log Workout</button>
+        </form>
+        <div id="progress-tracking-output"></div>
+    </section>
+
+    <!-- Add a community forum -->
+    <section id="community-forum">
+        <h2>Community Forum</h2>
+        <div id="forum-posts"></div>
+        <form id="forum-post-form">
+            <textarea id="forum-post-text" placeholder="Write a post..."></textarea>
+            <button id="post-btn" type="submit">Post</button>
+        </form>
+    </section>
+  <footer>
+    <div class="footer-content">
+        <p>&copy; 2024 FitForge. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <ul class="social-links">
+            <li><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
