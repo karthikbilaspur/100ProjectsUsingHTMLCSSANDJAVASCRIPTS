@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#coaches">Coaches</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <h1>Welcome to Fitness Hub</h1>
+        <button>Join Now</button>
+    </section>
+
+    <!-- Coaches Section -->
+    <section id="coaches">
+        <h2>Meet Our Coaches</h2>
+        <div class="coach-container">
+            <div class="coach-card">
+                <img src="coach1.jpg" alt="Coach 1">
+                <h3>John Doe</h3>
+                <p>Specialty: Weightlifting</p>
+                <p>Rating: <span class="rating">4.5/5</span></p>
+                <button>View Details</button>
+                <div class="coach-details">
+                    <p>Experience: 5 years</p>
+                    <p>Certifications: Certified Personal Trainer</p>
+                </div>
+            </div>
+            <div class="coach-card">
+                <img src="coach2.jpg" alt="Coach 2">
+                <h3>Jane Smith</h3>
+                <p>Specialty: Yoga</p>
+                <p>Rating: <span class="rating">4.8/5</span></p>
+                <button>View Details</button>
+                <div class="coach-details">
+                    <p>Experience: 8 years</p>
+                    <p>Certifications: Certified Yoga Instructor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                <p>Rating: <span class="rating">5/5</span></p>
+                <p>- Rachel Brown</p>
+            </div>
+            <div class="testimonial-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                <p>Rating: <span class="rating">4.5/5</span></p>
+                <p>- Michael Davis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Booking form -->
+<section id="booking">
+    <h2>Book a Class</h2>
+    <form id="booking-form">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="date" id="date" placeholder="Date">
+        <input type="time" id="time" placeholder="Time">
+        <button type="submit">Book Now</button>
+    </form>
+    <div id="booking-modal">
+        <p>Booking successful!</p>
+        <button id="close-modal">Close</button>
+    </div>
+</section>
+
+<!-- Subscribe form -->
+<section id="subscribe">
+    <h2>Subscribe to our Newsletter</h2>
+    <form id="subscribe-form">
+        <input type="email" id="subscribe-email" placeholder="Email">
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+    <script src="script.js"></script>
+    <footer>
+    <p>&copy; 2025 Fitness Hub. All rights reserved.</p>
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener" title="Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+</footer>
+</body>
+</html>
