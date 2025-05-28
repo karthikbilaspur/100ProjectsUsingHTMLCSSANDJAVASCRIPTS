@@ -1,0 +1,177 @@
+
+body {
+  margin: 0;
+  color: #333;
+  font-family: Open Sans, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+h1 {
+  color: white;
+  font-family: Comfortaa, cursive;
+  letter-spacing: 3px;
+  font-size: 42px;
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  background-color: lightpink;
+  padding: 0px 8px 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#new-game-button {
+  text-decoration: none;
+  color: rgb(210, 118, 118);
+  margin-top: 40px;
+  padding: 12px 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px white;
+}
+
+#new-game-button:hover {
+  background-color: rgb(120, 22, 22);
+  color: lightpink;
+  margin-top: 40px;
+  padding: 12px 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px white;
+}
+
+#game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 8px 30px;
+}
+
+#game-container.hidden {
+  display: none;
+}
+
+.card {
+  margin: 10px;
+  cursor: pointer;
+  width: calc(25% - 20px);
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px gray;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card .front {
+  display: none;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 36px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.card.flipped .front {
+  display: block;
+}
+
+.card.flipped .back {
+  display: none;
+}
+
+.card .back {
+  background-color: #71a8e3;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#game-board {
+  perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+#timer, #score, #score-multiplier, #high-score, #moves {
+  font-size: 24px;
+  margin: 10px;
+}
+
+#restart-button {
+  margin-bottom: 20px;
+}
+
+#score-board {
+  margin: 30px 0 0;
+  display: flex;
+}
+
+.score {
+  display: inline-block;
+  padding: 0 20px 0;
+}
+
+#win-screen {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(33, 33, 147, 0.95);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#win-screen>* {
+  line-height: 0;
+  margin: 25px;
+}
+
+#win-screen.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.8s;
+}
+
+#replay-button {
+  cursor: pointer;
+  padding: 15px;
+  margin: 10px;
+  background-color: #f0f0ff;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px white;
+}
+
+#replay-button:hover {
+  background-color: #f8f8ff;
+  border: 1px solid white;
+  box-shadow: 0px 0px 5px 1px white;
+}

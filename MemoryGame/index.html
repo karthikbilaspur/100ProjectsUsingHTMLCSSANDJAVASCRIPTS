@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MEMORY CARD GAME</h1>
+        <a href="#game-container" id="new-game-button">New Game?</a>
+    </header>
+    <section id="game-container" class="hidden">
+        <div class="container-fluid mt-5">
+            <div class="row justify-content-center" id="game-board"></div>
+            <div class="row mt-3 justify-content-center">
+                <div class="col-md-6 col-sm-12 text-center">
+                    <button id="restart-button" class="btn btn-primary">Restart</button>
+                    <span id="timer">Time: 0s</span>
+                    <span id="score">Score: 0</span>
+                    <span id="score-multiplier">Score Multiplier: 1x</span>
+                    <span id="high-score">High Score: <span id="high-score-value">0</span></span>
+                    <span id="moves">Moves: 0</span>
+                </div>
+            </div>
+        </div>
+        <section id="score-board" class="">
+            <div class="score low-score">Low Score: N/A</div>
+            <div class="score click-count">Total Clicks: 0</div>
+        </section>
+        <div id="win-screen" class="">
+            <h3>Congratulations! You won!</h3>
+            <div class="score click-count">Total Clicks: 0</div>
+            <div class="score low-score">Low Score:</div>
+            <a id="replay-button">Play Again?</a>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
