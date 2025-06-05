@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+            <form id="multi-level-form">
+                <div class="form-step" id="step-1">
+                    <h2>Step 1: Basic Information</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br><br>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age"><br><br>
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio"></textarea><br><br>
+                    <label for="interests">Interests:</label>
+                    <select id="interests" name="interests" multiple>
+                        <option value="reading">Reading</option>
+                        <option value="hiking">Hiking</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="traveling">Traveling</option>
+                    </select><br><br>
+                    <button id="next-step-1">Next</button>
+                </div>
+                <div class="form-step" id="step-2" style="display: none;">
+                    <h2>Step 2: Likes and Dislikes</h2>
+                    <label for="likes">Likes:</label>
+                    <input type="text" id="likes" name="likes"><br><br>
+                    <label for="dislikes">Dislikes:</label>
+                    <input type="text" id="dislikes" name="dislikes"><br><br>
+                    <button id="prev-step-1">Previous</button>
+                    <button id="next-step-2">Next</button>
+                </div>
+                <div class="form-step" id="step-3" style="display: none;">
+                    <h2>Step 3: Upload Pictures</h2>
+                    <input type="file" id="pics" name="pics" multiple><br><br>
+                    <button id="prev-step-2">Previous</button>
+                    <button id="submit-form">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-container" style="display: none;">
+            <div class="card">
+                <h2 id="card-name"></h2>
+                <p id="card-age"></p>
+                <p id="card-bio"></p>
+                <h3>Interests:</h3>
+                <ul id="card-interests"></ul>
+                <h3>Likes:</h3>
+                <p id="card-likes"></p>
+                <h3>Dislikes:</h3>
+                <p id="card-dislikes"></p>
+                <div id="pics-container" class="pics-container"></div>
+                <button id="swipe-left-btn" class="swipe-btn">Swipe Left</button>
+                <button id="swipe-right-btn" class="swipe-btn">Swipe Right</button>
+                <button id="favorite-btn" class="favorite-btn">Favorite</button>
+                <button id="message-btn" class="message-btn">Message</button>
+            </div>
+        </div>
+        <div class="matches-container" style="display: none;">
+            <h2>Matches</h2>
+            <div id="matches-list"></div>
+        </div>
+        <div class="chat-container" style="display: none;">
+            <h2>Chat with <span id="chat-name"></span></h2>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-msg-btn">Send</button>
+            <div id="chat-log"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Dating App</p> 
+    </footer>
+</body>
+</html>

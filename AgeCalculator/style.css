@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+
+.form-step {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pics-container img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.swipe-btn {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.favorite-btn {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFC107;
+    color: #fff;
+    cursor: pointer;
+}
+
+.message-btn {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #03A9F4;
+    color: #fff;
+    cursor: pointer;
+}
+
+.matches-container {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chat-log {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer p {
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .form-container, .card-container, .matches-container, .chat-container {
+        width: 90%;
+    }
+
+    .pics-container img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .swipe-btn, .favorite-btn, .message-btn {
+        width: 80px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container, .card-container, .matches-container, .chat-container {
+        width: 100%;
+    }
+
+    .pics-container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .swipe-btn, .favorite-btn, .message-btn {
+        width: 60px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .form-container, .card-container, .matches-container, .chat-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .pics-container img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .swipe-btn, .favorite-btn, .message-btn {
+        width: 50px;
+        height: 15px;
+    }
+}
