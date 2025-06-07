@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-stack {
+  background-color: #f9f9f9;
+}
+
+.grid-stack-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.grid-stack-item-content {
+  padding: 10px;
+}
+
+#crypto-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#crypto-table th, #crypto-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#crypto-table th {
+  background-color: #f0f0f0;
+}
+
+#price-chart {
+  width: 100%;
+  height: 200px;
+}
+
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dark-theme .container {
+  background-color: #444;
+  border-color: #555;
+}
+
+.dark-theme #crypto-table th {
+  background-color: #555;
+}
+
+.introjs-tooltip {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.introjs-tooltip .introjs-tooltiptext {
+  font-size: 14px;
+}
+
+.introjs-tooltip .introjs-button {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.introjs-tooltip .introjs-button:hover {
+  background-color: #23527c;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #crypto-table {
+    font-size: 14px;
+  }
+}

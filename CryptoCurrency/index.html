@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.6.4/gridstack.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Cryptocurrency App</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" id="search-input" class="form-control" placeholder="Search cryptocurrencies...">
+            </div>
+            <div class="col-md-6">
+                <select id="sort-select" class="form-control">
+                    <option value="market_cap_desc">Market Cap (High to Low)</option>
+                    <option value="market_cap_asc">Market Cap (Low to High)</option>
+                    <option value="price_desc">Price (High to Low)</option>
+                    <option value="price_asc">Price (Low to High)</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid-stack">
+            <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+                <div class="grid-stack-item-content">
+                    <table id="crypto-table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Symbol</th>
+                                <th>Price</th>
+                                <th>Market Cap</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crypto-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+                <div class="grid-stack-item-content">
+                    <canvas id="price-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        <button id="theme-toggle" class="btn btn-secondary">Toggle Theme</button>
+        <button id="start-tutorial" class="btn btn-primary">Start Tutorial</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io@2.3.0/dist/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.6.4/gridstack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+    <script src="script.js"></script>
+    <footer>
+        <p class="text-center">© 2025 Cryptocurrency App</p>
+        
+    </footer>    
+</body>
+</html>
