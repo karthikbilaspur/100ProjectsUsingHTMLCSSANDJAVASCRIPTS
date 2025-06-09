@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Silencer Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="gameOver" style="display: none;">
+        <h2>Game Over!</h2>
+        <p>Score: <span id="finalScore"></span></p>
+        <button id="playAgain">Play Again</button>
+    </div>
+    <div id="difficultySelect">
+        <h2>Select Difficulty:</h2>
+        <button id="easyBtn">Easy</button>
+        <button id="mediumBtn">Medium</button>
+        <button id="hardBtn">Hard</button>
+    </div>
+    <audio id="sliceSound" src="slice.mp3"></audio>
+    <audio id="powerUpSound" src="powerup.mp3"></audio>
+    <script src="script.js"></script>
+
+<!-- Add a share button to the game over screen -->
+<div id="gameOver" style="display: none;">
+    <h2>Game Over!</h2>
+    <p>Score: <span id="finalScore"></span></p>
+    <button id="playAgain">Play Again</button>
+    <button id="shareBtn">Share Your Score!</button>
+</div>
+
+<!-- Add a share menu -->
+<div id="shareMenu" style="display: none;">
+    <h2>Share Your Score!</h2>
+    <button id="shareNearby">Share to Nearby Devices</button>
+    <button id="shareEmail">Share via Email</button>
+    <button id="shareFacebook">Share on Facebook</button>
+    <button id="shareTwitter">Share on Twitter</button>
+    <button id="shareWhatsApp">Share on WhatsApp</button>
+</div>
+
+</body>
+</html>
