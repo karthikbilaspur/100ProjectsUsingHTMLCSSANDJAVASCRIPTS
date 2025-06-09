@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://i.ibb.co/M6KTWnf/pic.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Game</h1>
+    <div id="tutorial" class="tutorial">
+      <h2>Welcome to the Typing Game!</h2>
+      <p>Type the words that appear on the screen as quickly and accurately as possible.</p>
+      <p>Choose a game mode:</p>
+      <ul>
+        <li>Time Attack: Type as many words as possible within the time limit.</li>
+        <li>Word Chain: Type words that start with the last letter of the previous word.</li>
+        <li>Speed Challenge: Type a single word as quickly as possible.</li>
+      </ul>
+      <button id="start-button">Start Game</button>
+      <button id="high-scores-button">High Scores</button>
+<button id="exit-button">Exit</button>
+<div class="high-scores" id="high-scores">
+  <h2>High Scores</h2>
+  <ul id="high-score-list"></ul>
+  <button id="close-high-scores">Close</button>
+</div>
+    </div>
+    <div id="game" style="display: none;">
+      <h2 id="word"></h2>
+      <input type="text" id="text" autofocus>
+      <div class="score-container">
+        <p>Score: <span id="score">0</span></p>
+        <p>Accuracy: <span id="accuracy">0%</span></p>
+        <p>WPM: <span id="wpm">0</span></p>
+        <p>Errors: <span id="errors">0</span></p>
+      </div>
+      <div class="time-container">
+        <p>Time: <span id="time">60s</span></p>
+      </div>
+      <button id="settings-btn">Settings</button>
+      <div class="settings" id="settings">
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select id="game-mode">
+          <option value="time-attack">Time Attack</option>
+          <option value="word-chain">Word Chain</option>
+          <option value="speed-challenge">Speed Challenge</option>
+        </select>
+        <select id="language">
+          <option value="english">English</option>
+          <option value="spanish">Spanish</option>
+          <option value="french">French</option>
+        </select>
+      </div>
+      <div class="end-game-container" id="end-game-container"></div>
+      <div class="high-score-container">
+        <p>High Score: <span id="high-score">0</span></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <!-- Add social media sharing buttons -->
+    <div class="social-share">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-website-url.com" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://your-website-url.com&text=Check%20out%20this%20typing%20game!" target="_blank">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/sharing/share?url=https://your-website-url.com" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.reddit.com/submit?url=https://your-website-url.com&title=Typing%20Game" target="_blank">
+        <i class="fa-brands fa-reddit-alien"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

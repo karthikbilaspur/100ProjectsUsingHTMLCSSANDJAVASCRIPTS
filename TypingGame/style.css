@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+:root {
+  --primary-color: #BBE0EF;
+  --secondary-color: #06599F;
+  --overlay-color: #1A1314;
+  --gradient-color: #F2F3F4;
+  --text-color: #F0F0ED;
+  --border-radius: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  background-image: linear-gradient(315deg, var(--primary-color) 0%, var(--gradient-color) 100%);
+  font-family: "Syne Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 5px var(--overlay-color);
+  color: var(--text-color);
+  position: relative;
+  text-align: center;
+  width: 500px;
+  max-width: 90vw;
+}
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  border-radius: var(--border-radius);
+  padding: 10px 15px;
+  border: none;
+}
+
+button:hover {
+  color: var(--text-color);
+  background-color: var(--overlay-color);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+select {
+  width: 200px;
+  padding: 5px;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: var(--border-radius);
+  background-color: var(--gradient-color);
+}
+
+.settings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--overlay-color);
+  color: var(--text-color);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.settings.hide {
+  transform: translateY(-100%);
+}
+
+.end-game-container {
+  background-color: inherit;
+  border-radius: inherit;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+.tutorial {
+  text-align: center;
+}
+
+.tutorial ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tutorial li {
+  margin-bottom: 10px;
+}
+
+.high-score-container {
+  margin-top: 20px;
+}
+
+.high-score-container h3 {
+  margin: 0;
+}
+
+.high-score-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-share {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-share a {
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+.social-share a:hover {
+  color: #ccc;
+}
+
+.social-share i {
+  font-size: 24px;
+}
+
+/* Add media queries for different screen widths */
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+  .word {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+  .word {
+    font-size: 18px;
+  }
+  .social-share {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 20px;
+  }
+}
