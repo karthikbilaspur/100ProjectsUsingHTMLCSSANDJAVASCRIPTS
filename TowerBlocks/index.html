@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Defense Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <div id="game-info">
+        <p id="score">Score: 0</p>
+        <p id="health">Health: 100</p>
+        <p id="level">Level: 1</p>
+    </div>
+    <div id="tower-selection">
+        <button id="sniper-tower-button">Sniper Tower</button>
+        <button id="machine-gun-tower-button">Machine Gun Tower</button>
+        <button id="splash-tower-button">Splash Tower</button>
+    </div>
+    <footer id="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Tower Defense Game</p>
+        <ul id="social-sharing">
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank" id="facebook-share-button">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/intent/tweet?url=https://example.com&text=Tower%20Defense%20Game" target="_blank" id="twitter-share-button">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/sharing/share?url=https://example.com" target="_blank" id="linkedin-share-button">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
