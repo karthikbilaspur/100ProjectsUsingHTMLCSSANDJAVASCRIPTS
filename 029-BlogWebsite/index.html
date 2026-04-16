@@ -16,80 +16,125 @@
     <meta name="twitter:title" content="Karthik Blog">
     <meta name="twitter:description" content="A personal blog about technology and programming">
     <meta name="twitter:image" content="https://example.com/image.jpg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="#home" class="logo">Karthik Blog</a>
+            </div>
+            
+            <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Account</a>
+                    <a href="#" class="dropdown-toggle">Account <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#login" class="nav-link">Login</a></li>
                         <li><a href="#register" class="nav-link">Register</a></li>
                     </ul>
                 </li>
             </ul>
+
+            <div class="nav-actions">
+                <button id="dark-mode-toggle-btn" class="icon-btn" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="hero">
-        <h1>Welcome to Karthik Blog</h1>
-        <p>Explore my thoughts and ideas on various topics.</p>
-        <button id="get-started-btn" class="btn">Get Started</button>
+        <div class="hero-content">
+            <h1>Welcome to Karthik Blog</h1>
+            <p>Exploring technology, programming, and ideas that build the web.</p>
+            <button id="get-started-btn" class="btn">Get Started</button>
+        </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog">
-        <h1>Blog Posts</h1>
-        <ul id="blog-posts">
+    <section id="blog" class="container">
+        <div class="blog-header">
+            <h1>Blog Posts</h1>
+            <div class="blog-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search posts..." aria-label="Search blog posts">
+                </div>
+                <div class="font-controls">
+                    <button id="font-size-decrease-btn" class="icon-btn" aria-label="Decrease font size">A-</button>
+                    <button id="font-size-increase-btn" class="icon-btn" aria-label="Increase font size">A+</button>
+                </div>
+            </div>
+        </div>
+        <ul id="blog-posts" class="blog-grid">
             <!-- Blog posts will be generated dynamically -->
         </ul>
-        <button id="load-more-btn" class="btn">Load More</button>
+        <button id="load-more-btn" class="btn btn-outline">Load More</button>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="container">
         <h1>About Me</h1>
-        <p>I'm Karthik, a passionate blogger and writer.</p>
-        <img src="author.jpg" alt="Author Image" loading="lazy">
+        <div class="about-content">
+            <img src="author.jpg" alt="Karthik - Blog Author" loading="lazy" class="author-img">
+            <div>
+                <p>I'm Karthik, a passionate developer and writer. I love breaking down complex tech into simple ideas and sharing what I learn while building on the web.</p>
+                <button id="push-notification-btn" class="btn btn-secondary">
+                    <i class="fas fa-bell"></i> Enable Notifications
+                </button>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="container">
         <h1>Get in Touch</h1>
         <p>Feel free to contact me with any questions or feedback.</p>
-        <form>
+        <form id="contact-form">
             <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
         </form>
     </section>
 
     <!-- Newsletter Section -->
     <section id="newsletter">
-        <h1>Stay Updated</h1>
-        <p>Subscribe to my newsletter to receive updates on new blog posts.</p>
-        <form id="newsletter-signup-form">
-            <input type="email" name="email" placeholder="Email" required>
-            <button type="submit" class="btn">Subscribe</button>
-        </form>
+        <div class="container">
+            <h1>Stay Updated</h1>
+            <p>Subscribe to my newsletter to receive updates on new blog posts.</p>
+            <form id="newsletter-signup-form">
+                <input type="email" id="newsletter-signup-email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>2025 Karthik Blog. All rights reserved.</p>
-        <ul>
-            <li><a href="https://www.facebook.com/karthikblog" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://www.twitter.com/karthikblog" target="_blank" rel="noopener">Twitter</a></li>
-            <li><a href="https://www.instagram.com/karthikblog" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
+        <div class="container">
+            <p>© 2026 Karthik Blog. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/karthikblog" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.twitter.com/karthikblog" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/karthikblog" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
     </footer>
 
     <script src="script.js"></script>

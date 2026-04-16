@@ -1,14 +1,24 @@
-// Get the blog posts container
+// ===== STATE & INIT =====
+let currentFontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+// Apply saved preferences on load
+document.addEventListener('DOMContentLoaded', () => {
+    if (isDarkMode) document.body.classList.add('dark-mode');
+    updateFontSize();
+    generateBlogPosts(blogPostsData);
+    initEventListeners();
+});
+
+// ===== BLOG POSTS =====
 const blogPostsContainer = document.getElementById('blog-posts');
 
-// Define a function to generate blog posts
 function generateBlogPosts(blogPostsData) {
-    // Loop through the blog posts data and generate the HTML
     blogPostsData.forEach((blogPost) => {
         const blogPostHTML = `
-            <li class="blog-post">
+            <li class="blog-post" style="font-size: ${currentFontSize}px">
                 <h2>${blogPost.title}</h2>
-                <p>By ${blogPost.author} on ${blogPost.date}</p>
+                <p class="meta">By ${blogPost.author} on ${formatDate(blogPost.date)}</p>
                 <p>${blogPost.content}</p>
             </li>
         `;
@@ -16,7 +26,12 @@ function generateBlogPosts(blogPostsData) {
     });
 }
 
-// Define some sample blog posts data
+function formatDate(dateStr) {
+    return new Date(dateStr).toLocaleDateString('en-US', { 
+        year: 'numeric', month: 'long', day: 'numeric' 
+    });
+}
+
 const blogPostsData = [
     {
         title: 'My First Blog Post',
@@ -25,184 +40,142 @@ const blogPostsData = [
         date: '2025-02-20'
     },
     {
-        title: 'My Second Blog Post',
-        content: 'This is my second blog post. I hope you enjoy reading it.',
+        title: 'How I Built This Blog with Vanilla JS',
+        content: 'No frameworks needed. Here\'s how I used ES6+, CSS Grid, and the Fetch API to build a fast, lightweight blog.',
         author: 'Karthik',
         date: '2025-02-25'
     },
     {
-        title: 'My Third Blog Post',
-        content: 'This is my third blog post. I\'m having fun writing these posts.',
+        title: 'Dark Mode: More Than Just Colors',
+        content: 'Implementing dark mode taught me about CSS variables, localStorage, and user preference media queries.',
         author: 'Karthik',
         date: '2025-03-01'
     }
 ];
 
-// Call the generateBlogPosts function to populate the blog posts container
-generateBlogPosts(blogPostsData);
+// ===== EVENT LISTENERS =====
+function initEventListeners() {
+    // Hamburger menu
+    document.getElementById('hamburger').addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.toggle('active');
+    });
 
-// Add an event listener to the load more button
-document.getElementById('load-more-btn').addEventListener('click', () => {
-    // Generate more blog posts and add them to the container
-    const moreBlogPostsData = [
-        {
-            title: 'My Fourth Blog Post',
-            content: 'This is my fourth blog post. I\'m excited to share more thoughts and ideas with you.',
-            author: 'Karthik',
-            date: '2025-03-05'
-        },
-        {
-            title: 'My Fifth Blog Post',
-            content: 'This is my fifth blog post. I hope you enjoy reading it.',
-            author: 'Karthik',
-            date: '2025-03-10'
-        }
-    ];
-    generateBlogPosts(moreBlogPostsData);
-});
+    // Load more posts
+    document.getElementById('load-more-btn').addEventListener('click', () => {
+        const moreBlogPostsData = [
+            {
+                title: 'Understanding the Web Share API',
+                content: 'Native sharing is here. Let me show you how to let users share your content to any app with one line of code.',
+                author: 'Karthik',
+                date: '2025-03-05'
+            },
+            {
+                title: 'Why I Still Love Vanilla JavaScript',
+                content: 'Frameworks are great, but knowing the fundamentals makes you a better developer. Here\'s why I start every project vanilla.',
+                author: 'Karthik',
+                date: '2025-03-10'
+            }
+        ];
+        generateBlogPosts(moreBlogPostsData);
+    });
 
-// Add an event listener to the search input
-document.getElementById('search-input').addEventListener('input', (e) => {
-    // Get the search query
-    const searchQuery = e.target.value.toLowerCase();
+    // Search functionality
+    document.getElementById('search-input').addEventListener('input', (e) => {
+        const searchQuery = e.target.value.toLowerCase();
+        document.querySelectorAll('.blog-post').forEach((blogPost) => {
+            const title = blogPost.querySelector('h2').textContent.toLowerCase();
+            const content = blogPost.querySelector('p:last-child').textContent.toLowerCase();
+            blogPost.style.display = title.includes(searchQuery) || content.includes(searchQuery) ? 'block' : 'none';
+        });
+    });
 
-    // Loop through the blog posts and hide/show them based on the search query
-    document.querySelectorAll('.blog-post').forEach((blogPost) => {
-        const blogPostTitle = blogPost.querySelector('h2').textContent.toLowerCase();
-        if (blogPostTitle.includes(searchQuery)) {
-            blogPost.style.display = 'block';
-        } else {
-            blogPost.style.display = 'none';
+    // Newsletter signup
+    document.getElementById('newsletter-signup-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-signup-email').value;
+        await subscribeToNewsletter(email);
+        e.target.reset();
+    });
+
+    // Contact form
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        await submitForm(formData);
+        e.target.reset();
+    });
+
+    // Dark mode toggle
+    document.getElementById('dark-mode-toggle-btn').addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        document.querySelector('#dark-mode-toggle-btn i').className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+    });
+
+    // Font size controls
+    document.getElementById('font-size-increase-btn').addEventListener('click', () => {
+        if (currentFontSize < 22) {
+            currentFontSize += 2;
+            updateFontSize();
         }
     });
-});
 
-// Add an event listener to the newsletter signup form
-document.getElementById('newsletter-signup-form').addEventListener('submit', (e) => {
-    // Prevent the default form submission behavior
-    e.preventDefault();
+    document.getElementById('font-size-decrease-btn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+            currentFontSize -= 2;
+            updateFontSize();
+        }
+    });
 
-    // Get the email address from the form
-    const emailAddress = document.getElementById('newsletter-signup-email').value;
+    // Get started button scroll
+    document.getElementById('get-started-btn').addEventListener('click', () => {
+        document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+    });
 
-// Subscribe the user to the newsletter
-const subscribeToNewsletter = async (emailAddress) => {
+    // Push notifications
+    document.getElementById('push-notification-btn').addEventListener('click', () => {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification('Thanks for enabling notifications!', {
+                    body: 'You\'ll get updates when I post new articles.',
+                    icon: 'favicon.ico'
+                });
+            }
+        });
+    });
+}
+
+function updateFontSize() {
+    document.querySelectorAll('.blog-post').forEach(post => {
+        post.style.fontSize = `${currentFontSize}px`;
+    });
+    localStorage.setItem('fontSize', currentFontSize);
+}
+
+// ===== API FUNCTIONS =====
+async function subscribeToNewsletter(email) {
     try {
-        // Make a POST request to the newsletter API
         const response = await fetch('https://example.com/newsletter-api/subscribe', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: emailAddress })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
         });
-
-        // Check if the response was successful
-        if (response.ok) {
-            // Display a success message to the user
-            alert('Thank you for subscribing to our newsletter!');
-        } else {
-            // Display an error message to the user
-            alert('Failed to subscribe to the newsletter. Please try again.');
-        }
+        alert(response.ok ? 'Thank you for subscribing!' : 'Failed to subscribe. Please try again.');
     } catch (error) {
-        // Display an error message to the user
-        alert('Failed to subscribe to the newsletter. Please try again.');
+        alert('Network error. Please try again.');
     }
-};
+}
 
-// Call the subscribeToNewsletter function when the newsletter signup form is submitted
-document.getElementById('newsletter-signup-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emailAddress = document.getElementById('newsletter-signup-email').value;
-    subscribeToNewsletter(emailAddress);
-});
-    // Display a success message to the user
-    alert('Thank you for subscribing to our newsletter!');
-});
-
-// Add an event listener to the contact form
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    // Prevent the default form submission behavior
-    e.preventDefault();
-
-    // Get the form data
-    const formData = new FormData(e.target);
-
-    // Send the form data to the server
-const submitForm = async (formData) => {
+async function submitForm(formData) {
     try {
-        // Make a POST request to the form submission API
         const response = await fetch('https://example.com/form-submission-api/submit', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(formData))
         });
-
-        // Check if the response was successful
-        if (response.ok) {
-            // Display a success message to the user
-            alert('Thank you for contacting us! We will get back to you soon.');
-        } else {
-            // Display an error message to the user
-            alert('Failed to submit the form. Please try again.');
-        }
+        alert(response.ok ? 'Thank you for contacting us!' : 'Failed to submit. Please try again.');
     } catch (error) {
-        // Display an error message to the user
-        alert('Failed to submit the form. Please try again.');
+        alert('Network error. Please try again.');
     }
-};
-
-// Call the submitForm function when the contact form is submitted
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    submitForm(formData);
-});
-    // Display a success message to the user
-    alert('Thank you for contacting us!');
-});
-
-// Add an event listener to the dark mode toggle button
-document.getElementById('dark-mode-toggle-btn').addEventListener('click', () => {
-    // Toggle the dark mode class on the body element
-    document.body.classList.toggle('dark-mode');
-});
-
-// Add an event listener to the font size increase button
-document.getElementById('font-size-increase-btn').addEventListener('click', () => {
-    // Increase the font size of the blog posts
-    document.querySelectorAll('.blog-post').forEach((blogPost) => {
-        blogPost.style.fontSize = '18px';
-    });
-});
-
-// Add an event listener to the font size decrease button
-document.getElementById('font-size-decrease-btn').addEventListener('click', () => {
-    // Decrease the font size of the blog posts
-    document.querySelectorAll('.blog-post').forEach((blogPost) => {
-        blogPost.style.fontSize = '16px';
-    });
-});
-
-// Initialize the push notification permission
-Notification.requestPermission((status) => {
-    console.log('Notification permission status:', status);
-});
-
-// Add an event listener to the push notification button
-document.getElementById('push-notification-btn').addEventListener('click', () => {
-    // Create a new notification
-    const notification = new Notification('Hello, world!', {
-        body: 'This is a push notification.',
-        icon: 'icon.png'
-    });
-
-    // Add an event listener to the notification
-    notification.addEventListener('click', () => {
-        // Open the website when the notification is clicked
-        window.open('https://example.com', '_blank');
-    });
-});
+}

@@ -1,47 +1,159 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Header and Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #fff !important; /* Make sure brand is visible on dark background */
+}
+
+.navbar-nav .nav-link {
+    color: #c0c0c0 !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+.social-icons .nav-link {
+    font-size: 1.3rem;
+    padding: 0.5rem 0.8rem;
+}
+
+/* Gallery Section */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px; /* Spacing between gallery items */
+    margin-bottom: 30px;
 }
 
-.gallery img {
-    width: 200px;
-    height: 150px;
-    margin: 10px;
+.gallery-item {
+    position: relative;
+    overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    background-color: #fff;
+    padding: 0; /* Remove default column padding */
+    display: flex;
+    flex-direction: column;
+    width: calc(33.333% - 15px); /* For 3 columns with gap */
+    max-width: 300px; /* Optional: limit individual item width */
 }
 
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop images to fit */
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.image-title {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    flex-grow: 1; /* Allows title to take up remaining space if image is shorter */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lightbox */
 .lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+    display: flex; /* Use flexbox for centering */
+    align-items: center;
+    justify-content: center;
+    z-index: 1050; /* Above navbar */
+    padding: 20px;
 }
 
-.lightbox img {
-    width: 80%;
-    height: 80%;
-    margin: 10% auto;
+.lightbox-content {
+    background: #000;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh; /* Max height relative to viewport */
+    object-fit: contain; /* Ensure entire image is visible */
+    margin: 0 auto;
     display: block;
+    border-radius: 5px;
 }
 
+.lightbox-description {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #f8f9fa; /* Light text for description */
+}
+
+.lightbox-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.lightbox-controls .btn {
+    font-size: 1rem;
+    padding: 8px 15px;
+}
+
+/* Footer */
 .footer {
-    background-color: #f5f5f5;
-    padding: 20px 0;
+    background-color: #343a40; /* Darker footer */
+    color: #f8f9fa;
+    padding: 40px 0;
+    box-shadow: 0 -2px 4px rgba(0,0,0,.1);
 }
 
 .footer h5 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #fff;
 }
 
 .footer ul {
+    padding-left: 0;
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .footer ul li {
@@ -49,36 +161,120 @@
 }
 
 .footer ul li a {
-    color: #337ab7;
+    color: #c0c0c0;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer ul li a:hover {
-    color: #23527c;
+    color: #fff;
 }
 
-.footer .list-inline {
+.footer .social-icons .list-inline-item a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #c0c0c0;
+}
+
+.footer .social-icons .list-inline-item a:hover {
+    color: #fff;
+}
+
+.footer p {
+    font-size: 0.9rem;
     margin-bottom: 0;
+    color: #c0c0c0;
 }
 
-.footer .list-inline li {
-    margin-right: 10px;
+/* Search input and buttons */
+#search-input {
+    border-radius: 50px; /* Rounded search bar */
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
 }
 
-.footer .list-inline li a {
-    font-size: 18px;
+.btn-info, .btn-success, .btn-primary, .btn-secondary {
+    border-radius: 50px; /* Rounded buttons */
+    padding: 10px 25px;
+    font-weight: 500;
 }
 
-@media (max-width: 768px) {
-    .gallery img {
-        width: 150px;
-        height: 100px;
+/* Loading Spinner */
+.loading-spinner {
+    display: none; /* Hidden by default */
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .gallery-item {
+        width: calc(50% - 15px); /* 2 columns on medium screens */
+    }
+    .lightbox-content img {
+        max-height: 60vh;
     }
 }
 
-@media (max-width: 480px) {
-    .gallery img {
-        width: 100px;
-        height: 70px;
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .gallery-item {
+        width: calc(100% - 15px); /* 1 column on small screens */
+    }
+    .row.mb-4.align-items-center > div {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .row.mb-4.align-items-center > div:last-child {
+        margin-bottom: 0;
+    }
+    .btn-info, .btn-success {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .lightbox-controls .btn {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    .footer .col-md-4 {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .footer ul {
+        text-align: center;
+    }
+    .footer .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-item img {
+        height: 150px;
+    }
+    .lightbox-content {
+        padding: 10px;
+    }
+    .lightbox-controls {
+        flex-wrap: wrap;
+    }
+    .lightbox-controls .btn {
+        flex-grow: 1; /* Buttons take full width if needed */
+        margin-bottom: 5px;
+    }
+    .footer .list-inline-item {
+        margin-right: 10px; /* Adjust spacing for smaller screens */
     }
 }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Plotly.js for advanced graphing -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <header>
@@ -56,11 +58,15 @@
                     <button class="btn" onclick="insertConstant('e')">e</button>
                 </div>
                 <div class="unit-conversion">
+                    <h3>Unit Conversion</h3>
                     <label for="unit-from" class="visually-hidden">Convert from unit</label>
                     <select id="unit-from" title="Convert from unit">
                         <option value="length">Length</option>
                         <option value="mass">Mass</option>
                         <option value="time">Time</option>
+                        <option value="temperature">Temperature</option> <!-- New -->
+                        <option value="volume">Volume</option>         <!-- New -->
+                        <option value="speed">Speed</option>           <!-- New -->
                     </select>
                     <input type="number" id="unit-value" title="Value to convert" placeholder="Enter value">
                     <label for="unit-to" class="visually-hidden">Convert to unit</label>
@@ -90,6 +96,30 @@
                             <option value="hour">Hour</option>
                             <option value="day">Day</option>
                         </optgroup>
+                        <optgroup label="Temperature"> <!-- New Optgroup -->
+                            <option value="celsius">Celsius</option>
+                            <option value="fahrenheit">Fahrenheit</option>
+                            <option value="kelvin">Kelvin</option>
+                        </optgroup>
+                        <optgroup label="Volume">      <!-- New Optgroup -->
+                            <option value="liter">Liter</option>
+                            <option value="milliliter">Milliliter</option>
+                            <option value="gallon">Gallon (US)</option>
+                            <option value="quart">Quart (US)</option>
+                            <option value="pint">Pint (US)</option>
+                            <option value="cup">Cup (US)</option>
+                            <option value="fluid_ounce">Fluid Ounce (US)</option>
+                            <option value="cubic_meter">Cubic Meter</option>
+                            <option value="cubic_foot">Cubic Foot</option>
+                            <option value="cubic_inch">Cubic Inch</option>
+                        </optgroup>
+                        <optgroup label="Speed">       <!-- New Optgroup -->
+                            <option value="meters_per_second">Meters/Second</option>
+                            <option value="kilometers_per_hour">Kilometers/Hour</option>
+                            <option value="miles_per_hour">Miles/Hour</option>
+                            <option value="feet_per_second">Feet/Second</option>
+                            <option value="knots">Knots</option>
+                        </optgroup>
                     </select>
                     <button class="btn" onclick="convertUnits()">Convert</button>
                 </div>
@@ -116,17 +146,18 @@
         </section>
         <section id="graph-tab" class="tab-content">
             <h2>Graphing</h2>
-            <input type="text" id="graph-input" placeholder="Enter function of x">
+            <input type="text" id="graph-input" placeholder="Enter function(s) of x (e.g., sin(x); x^2)">
             <button class="btn" onclick="plotGraph()">Plot Graph</button>
-            <div id="graph-container"></div>
+            <!-- Plotly.js will render the graph here -->
+            <div id="graph-containerheight:400px;"></div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/mathjs@11.3.3/dist/math.min.js"></script>
     <script src="script.js"></script>
 <footer>
-    <p>&copy; 2025 Advanced Calculator. All rights reserved.</p>
-    <p>Developed by Kathik</p>
+    <p>&copy; 2026 Advanced Calculator. All rights reserved.</p>
+    <p>Developed by KathikCodingSoltions</p>
 </footer>
 
 </body>
-</html>.
+</html>

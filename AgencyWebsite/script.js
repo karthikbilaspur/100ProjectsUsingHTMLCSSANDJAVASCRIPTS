@@ -1,113 +1,284 @@
+document.addEventListener('DOMContentLoaded', () => {
 
-// Testimonials array
-var testimonials = [
-    {quote: '"(2)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"', author: "- Author Two"},
-    {quote: '"(3)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"', author: "- Author Three" },
-    {quote: '"(4)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"', author: "- Author Four" }
-  ];
-  
-  // Smooth scrolling
-  const navLinks = document.querySelectorAll('nav ul li a');
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      if (e.button === 0) {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        if (targetId !== '#') {
-          const targetSection = document.querySelector(targetId);
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            console.error(`Target section not found: ${targetId}`);
-          }
+    // --- 1. Nav Bar Scroll Effect & Hamburger Menu Toggle ---
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = document.querySelector('.nav-links');
+    const navToggle = document.createElement('div'); // Create a div for the hamburger icon
+    navToggle.classList.add('nav-toggle');
+    navToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Font Awesome hamburger icon
+    mainNav.prepend(navToggle); // Add it to the beginning of the nav
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainNav.classList.add('scrolled');
+        } else {
+            mainNav.classList.remove('scrolled');
         }
-      }
     });
-  });
-  
-  // Button animations
-  const buttons = document.querySelectorAll('.button1, .button2');
-  buttons.forEach((button) => {
-    button.addEventListener('mouseover', () => {
-      button.style.transform = 'scale(1.1)';
-      button.style.transition = 'transform 0.3s ease-in-out';
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active'); // Toggle 'active' class on nav-links
+        navToggle.querySelector('i').classList.toggle('fa-bars');
+        navToggle.querySelector('i').classList.toggle('fa-times'); // Change icon to 'X'
     });
-    button.addEventListener('mouseout', () => {
-      button.style.transform = 'scale(1)';
-      button.style.transition = 'transform 0.3s ease-in-out';
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function () {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.querySelector('i').classList.remove('fa-times');
+                navToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
     });
-  });
-  
-  // Overlay animation
-  const overlay = document.querySelector('.overlay');
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    overlay.style.opacity = `${1 - (scrollPosition / 1000)}`;
-  });
-  
-  // Navigation bar animation
-  const navBar = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    if (scrollPosition > 50) {
-      navBar.style.backgroundColor = '#22252c';
-      navBar.style.opacity = '1';
-    } else {
-      navBar.style.backgroundColor = '';
-      navBar.style.opacity = '0.8';
+
+    // --- 2. Smooth Scrolling for Navigation Links ---
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            const offset = mainNav.offsetHeight;
+
+            if (targetSection) {
+                const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- 3. Intersection Observer for Animate-on-Scroll Effects ---
+    const sections = document.querySelectorAll('.section, .hero-content, .feature-box, .portfolio-item, .case-study-card, .team-member');
+
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the item is visible
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in'); // Add a class for animation
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // --- 4. Testimonial Carousel (Enhanced with auto-play) ---
+    const testimonials = [
+        {
+            quote: "Our experience with this team was exceptional. They transformed our vision into a stunning reality, exceeding all our expectations. Truly professional and highly skilled!",
+            author: "- Sarah Chen, CEO of InnovateCorp"
+        },
+        {
+            quote: "Working with them was a breeze! They understood our needs perfectly and delivered a product that not only looks great but also performs flawlessly. Highly recommend!",
+            author: "- Michael Rodriguez, Founder of GlobalConnect"
+        },
+        {
+            quote: "The attention to detail and creative solutions provided were outstanding. Our project was complex, but they handled it with expertise and delivered beyond what we imagined.",
+            author: "- Jessica Lee, Marketing Director at FutureSolutions"
+        },
+        {
+            quote: "Absolutely thrilled with the results! The team's communication and dedication were top-notch. Our new website is a game-changer for our business.",
+            author: "- Alex P., Director at InnovateLabs"
+        }
+    ];
+
+    let currentTestimonialIndex = 0;
+    const quoteText = document.getElementById('quoteText');
+    const authorName = document.getElementById('authorName');
+    const prevTestimonialBtn = document.getElementById('prevTestimonial');
+    const nextTestimonialBtn = document.getElementById('nextTestimonial');
+    const carouselDotsContainer = document.getElementById('carouselDots'); // Renamed for clarity
+    let carouselInterval; // To hold the interval ID
+
+    function updateTestimonial() {
+        // Add a class for fade-out animation before changing content
+        quoteText.classList.add('fade-out');
+        authorName.classList.add('fade-out');
+
+        setTimeout(() => {
+            quoteText.textContent = testimonials[currentTestimonialIndex].quote;
+            authorName.textContent = testimonials[currentTestimonialIndex].author;
+
+            // Remove fade-out and add fade-in
+            quoteText.classList.remove('fade-out');
+            authorName.classList.remove('fade-out');
+            quoteText.classList.add('fade-in-text'); // Use a specific class for text fade-in
+            authorName.classList.add('fade-in-text');
+
+            // Remove fade-in-text after animation to allow repeated animations
+            setTimeout(() => {
+                quoteText.classList.remove('fade-in-text');
+                authorName.classList.remove('fade-in-text');
+            }, 500); // Match animation duration
+        }, 300); // Match fade-out duration
+
+        updateDots();
     }
-  });
-  
-  // jQuery code
-  $(document).ready(function() {
-    //Simple nav bar scroll animation.
-    $(window).scroll(function() {
-      var y_scroll_pos = window.pageYOffset;
-      var scroll_pos_test = 50;
-      if (y_scroll_pos > scroll_pos_test) {
-        $('nav').stop().animate({height: "60px", opacity: "1"}, 400);
-        $('nav ul').stop().animate({padding: "9px"}, 400);
-        $('nav ul li').stop().animate({padding: "20px"}, 400);
-      }
-      else {
-        $('nav').stop().animate({height: "40px", opacity: ".8"}, 400);
-        $('nav ul').stop().animate({padding: "0px"}, 400);
-        $('nav ul li').stop().animate({padding: "0px"}, 400);
-      }
+
+    function createDots() {
+        carouselDotsContainer.innerHTML = ''; // Clear existing dots
+        testimonials.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.dataset.index = index;
+            carouselDotsContainer.appendChild(dot);
+        });
+        updateDots(); // Set initial active dot
+    }
+
+    function updateDots() {
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            if (index === currentTestimonialIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function startCarousel() {
+        carouselInterval = setInterval(() => {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            updateTestimonial();
+        }, 5000); // Change testimonial every 5 seconds
+    }
+
+    function resetCarouselInterval() {
+        clearInterval(carouselInterval);
+        startCarousel();
+    }
+
+    prevTestimonialBtn.addEventListener('click', () => {
+        currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+        updateTestimonial();
+        resetCarouselInterval(); // Reset timer on manual interaction
     });
-    //Arrow fade animation in Testimonials.
-    $('.testimonials').hover(function() {
-      $(".arrows").stop().fadeIn("slow");
-    }, function() {
-      $(".arrows").stop().fadeOut("fast");
+
+    nextTestimonialBtn.addEventListener('click', () => {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        updateTestimonial();
+        resetCarouselInterval(); // Reset timer on manual interaction
     });
-    
-    //Testimonial quotes fade in when fa-arrow-right div is clicked.
-    $('.fa-arrow-right').click(function() {
-      var randomQuote = testimonials[Math.floor(Math.random() * testimonials.length)];
-      $('.quotes').hide().html(randomQuote.quote).fadeIn(2000);
-      $('.author').hide().html(randomQuote.author).fadeIn(2000);
+
+    carouselDotsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dot')) {
+            currentTestimonialIndex = parseInt(e.target.dataset.index);
+            updateTestimonial();
+            resetCarouselInterval(); // Reset timer on manual interaction
+        }
     });
-    //Testimonial quotes fade in when fa-arrow-left div is clicked.
-    $('.fa-arrow-left').click(function() {
-      var randomQuote = testimonials[Math.floor(Math.random() * testimonials.length)];
-      $('.quotes').hide().html(randomQuote.quote).fadeIn(2000);
-      $('.author').hide().html(randomQuote.author).fadeIn(2000);
+
+    // Initial setup for testimonials
+    if (quoteText && authorName && prevTestimonialBtn && nextTestimonialBtn && carouselDotsContainer) {
+        createDots();
+        updateTestimonial(); // Show the first testimonial immediately
+        startCarousel(); // Start auto-play
+    }
+
+    // --- 5. Back to Top Button ---
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.classList.add('back-to-top');
+    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show button after scrolling 300px
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
     });
-    
-    //Testimonials fade in when dots are clicked.
-    $('#dotsTwo').click(function() {
-      $('.quotes').hide().html(testimonials[0].quote).fadeIn(2000);
-      $('.author').hide().html(testimonials[0].author).fadeIn(2000);
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-    
-    $('#dotsThree').click(function() {
-      $('.quotes').hide().html(testimonials[1].quote).fadeIn(2000);
-      $('.author').hide().html(testimonials[1].author).fadeIn(2000);
-    });
-    
-    $('#dotsFour').click(function() {
-      $('.quotes').hide().html(testimonials[2].quote).fadeIn(2000);
-      $('.author').hide().html(testimonials[2].author).fadeIn(2000);
-    }); 
-  });
+
+    // --- 6. Form Validation ---
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default submission initially
+
+            let isValid = true;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            // Simple validation example
+            if (nameInput.value.trim() === '') {
+                displayError(nameInput, 'Name cannot be empty.');
+                isValid = false;
+            } else {
+                removeError(nameInput);
+            }
+
+            if (emailInput.value.trim() === '' || !isValidEmail(emailInput.value)) {
+                displayError(emailInput, 'Please enter a valid email address.');
+                isValid = false;
+            } else {
+                removeError(emailInput);
+            }
+
+            if (subjectInput.value.trim() === '') {
+                displayError(subjectInput, 'Subject cannot be empty.');
+                isValid = false;
+            } else {
+                removeError(subjectInput);
+            }
+
+            if (messageInput.value.trim() === '') {
+                displayError(messageInput, 'Message cannot be empty.');
+                isValid = false;
+            } else {
+                removeError(messageInput);
+            }
+
+            if (isValid) {
+                // If all good, you'd typically send data to a server here (e.g., using fetch API)
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset(); // Clear the form
+            }
+        });
+    }
+
+    function displayError(inputElement, message) {
+        let errorElement = inputElement.nextElementSibling;
+        if (!errorElement || !errorElement.classList.contains('error-message')) {
+            errorElement = document.createElement('div');
+            errorElement.classList.add('error-message');
+            inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+        }
+        errorElement.textContent = message;
+        inputElement.classList.add('input-error');
+    }
+
+    function removeError(inputElement) {
+        const errorElement = inputElement.nextElementSibling;
+        if (errorElement && errorElement.classList.contains('error-message')) {
+            errorElement.remove();
+        }
+        inputElement.classList.remove('input-error');
+    }
+
+    function isValidEmail(email) {
+        // Basic email regex validation
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+});

@@ -1,143 +1,326 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agency Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>My Awesome Portfolio</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for Open Sans and Raleway -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="flex-container">
-        <nav>
-            <ul>
-                <li><a href="#group1">OUR COMPANY</a></li>
-                <li><a href="#recent">OUR WORK</a></li>
-                <li><a href="#team">CASE STUDIES</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav" id="mainNav">
+        <div class="container">
+            <!-- For mobile, you might want a logo or site title here if not centering links -->
+            <!-- <a href="#" class="site-logo">My Logo</a> -->
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#casestudies">Case Studies</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
         <div class="overlay"></div>
-        <header>
-            <h1>WELCOME TO OUR AGENCY</h1>
-            <h2>WE CREATE AMAZING DIGITAL EXPERIENCES</h2>
-            <a href="#" class="button1">LEARN MORE</a>
-            <a href="#" class="button2">GET IN TOUCH</a>
-        </header>
-    </div>
-    <main role="main">
-        <div id="group1" class="group1 container">
-            <div class="row">
-                <section class="sec col-md-3 col-sm-6 fa fa-arrow-left">
-                    <h4>INNOVATIVE SOLUTIONS</h4>
-                    <p>We provide cutting-edge solutions for your business needs.</p>
-                </section>
-                <section class="sec col-md-3 col-sm-6 fa fa-arrow-up">
-                    <h4>EXPERT TEAM</h4>
-                    <p>Our team of experts is dedicated to delivering high-quality results.</p>
-                </section>
-                <section class="sec col-md-3 col-sm-6 fa fa-arrow-down">
-                    <h4>RESULTS-DRIVEN APPROACH</h4>
-                    <p>We focus on delivering results-driven solutions that meet your business goals.</p>
-                </section>
-                <section class="sec col-md-3 col-sm-6 fa fa-arrow-right">
-                    <h4>CLIENT SATISFACTION</h4>
-                    <p>We prioritize client satisfaction and strive to exceed your expectations.</p>
-                </section>
+        <div class="hero-content container">
+            <h1>Welcome to Our Creative Studio</h1>
+            <h2>We craft stunning digital experiences that captivate and convert.</h2>
+            <div class="hero-buttons">
+                <a href="#work" class="btn btn-primary">View Our Work <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch <i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div id="recent" class="recent">
-            <h1>RECENT WORK</h1>
-            <div class="portfolio">
-                <section class="port">
-                    <img src="https://picsum.photos/500/400?random=1" alt="Recent Work 1">
-                </section>
-                <section class="port">
-                    <img src="https://picsum.photos/500/400?random=2" alt="Recent Work 2">
-                </section>
-                <section class="port">
-                    <img src="https://picsum.photos/500/400?random=3" alt="Recent Work 3">
-                </section>
-                <section class="port">
-                    <img src="https://picsum.photos/500/400?random=4" alt="Recent Work 4">
-                </section>
-            </div>
-            <div class="port-button">FULL PORTFOLIO</div>
-        </div>
-        <div id="team" class="team">
-            <h1>MEET THE TEAM</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="team-pics container">
-                <div class="row text-center">
-                    <section class="profiles col-md-3 col-sm-6">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member 1">
-                        <h3>JANE DOE</h3>
-                        <h4>CEO & FOUNDER</h4>
-                    </section>
-                    <section class="profiles col-md-3 col-sm-6">
-                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Team Member 2">
-                        <h3>JOHN SMITH</h3>
-                        <h4>CTO</h4>
-                    </section>
-                    <section class="profiles col-md-3 col-sm-6">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member 3">
-                        <h3>EMILY JONES</h3>
-                        <h4>MARKETING MANAGER</h4>
-                    </section>
-                    <section class="profiles col-md-3 col-sm-6">
-                        <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="Team Member 4">
-                        <h3>MICHAEL BROWN</h3>
-                        <h4>DEVELOPER</h4>
-                    </section>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h1>What We Do</h1>
+            <p class="section-description">
+                We're passionate about bringing your ideas to life through thoughtful design and cutting-edge technology.
+                Here's a glimpse into our expertise.
+            </p>
+            <div class="grid-4-cols">
+                <div class="feature-box">
+                    <i class="fas fa-laptop-code icon-large"></i>
+                    <h4>Web Development</h4>
+                    <p>Building responsive and robust websites using the latest web technologies.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-palette icon-large"></i>
+                    <h4>UI/UX Design</h4>
+                    <p>Creating intuitive and beautiful user interfaces that users love.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-mobile-alt icon-large"></i>
+                    <h4>Mobile Apps</h4>
+                    <p>Developing seamless mobile applications for iOS and Android platforms.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-bullhorn icon-large"></i>
+                    <h4>Digital Marketing</h4>
+                    <p>Boosting your online presence and reaching your target audience effectively.</p>
                 </div>
             </div>
         </div>
-        <div class="testimonials">
-            <h1>HAPPY CLIENTS</h1>
-            <section>
-                <h2 class="quotes">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</h2> 
-            </section>
-            <section>
-                <p class="author">- CURRENT AUTHOR</p>
-            </section>
-            <section class="arrows">
-                <a class="fa fa-arrow-left"></a>
-                <a class="fa fa-arrow-right"></a>
-            </section>
-            <section class="dots">
-                <a id="dotsOne"></a>
-                <a id="dotsTwo"></a>
-                <a id="dotsThree"></a>
-                <a id="dotsFour"></a>
-            </section>
+    </section>
+
+    <!-- Recent Work Section -->
+    <section class="section" id="work">
+        <div class="container">
+            <h1>Our Recent Work</h1>
+            <p class="section-description">
+                Take a look at some of our proudest projects. We believe every project is a story waiting to be told.
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=1" alt="Project 1">
+                    <div class="portfolio-caption">
+                        <h3>Creative Branding</h3>
+                        <p>Branding & Identity Design</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=2" alt="Project 2">
+                    <div class="portfolio-caption">
+                        <h3>E-commerce Website</h3>
+                        <p>Web Development & UX</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=3" alt="Project 3">
+                    <div class="portfolio-caption">
+                        <h3>Mobile App Design</h3>
+                        <p>UI/UX for Mobile</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=4" alt="Project 4">
+                    <div class="portfolio-caption">
+                        <h3>Digital Marketing Campaign</h3>
+                        <p>Strategy & Content</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=5" alt="Project 5">
+                    <div class="portfolio-caption">
+                        <h3>Responsive Landing Page</h3>
+                        <p>Web Design & Development</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?random=6" alt="Project 6">
+                    <div class="portfolio-caption">
+                        <h3>Interactive Prototype</h3>
+                        <p>User Experience Design</p>
+                        <a href="#" class="view-project-btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-portfolio">Load More Work <i class="fas fa-plus"></i></a>
         </div>
-        <div id="contact" class="contact container">
-            <h1>CONTACT US</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <form action="" method="post">
-                <label>Name</label>
-                <input class="col-md-6 col-xs-12" name="name" placeholder="Name" type="text">
-                <label>Email</label>
-                <input class="email col-md-6 col-xs-12" name="email" placeholder="Email Address" type="text">
-                <label>Message</label>
-                <textarea class="col-md-12 col-xs-12" name="message" placeholder="Message" rows="10"></textarea>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section section-casestudies" id="casestudies">
+        <div class="container">
+            <h1>Detailed Case Studies</h1>
+            <p class="section-description">
+                Dive deeper into our process, challenges, and successful outcomes with these detailed case studies.
+            </p>
+            <div class="case-study-grid">
+                <div class="case-study-card">
+                    <img src="https://picsum.photos/400/250?random=case1" alt="Case Study 1">
+                    <h3>Revamping a Tech Startup's Image</h3>
+                    <p>How we helped a budding tech company establish a strong brand identity and market presence.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="case-study-card">
+                    <img src="https://picsum.photos/400/250?random=case2" alt="Case Study 2">
+                    <h3>Optimizing User Flow for a SaaS Platform</h3>
+                    <p>A deep dive into improving conversion rates through strategic UI/UX enhancements.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="case-study-card">
+                    <img src="https://picsum.photos/400/250?random=case3" alt="Case Study 3">
+                    <h3>Developing a Community Engagement App</h3>
+                    <p>From concept to launch, building a mobile application that fosters vibrant online communities.</p>
+                    <a href="#" class="read-more-btn">Read More <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <h1>Meet Our Team</h1>
+            <p class="section-description">
+                We're a dedicated group of creative professionals, passionate about innovation and collaboration.
+            </p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://picsum.photos/200/200?random=person1" alt="Team Member 1">
+                    <h3>Jane Doe</h3>
+                    <h4>Lead Designer</h4>
+                    <p>Jane brings visions to life with her exceptional eye for aesthetics and user experience.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://picsum.photos/200/200?random=person2" alt="Team Member 2">
+                    <h3>John Smith</h3>
+                    <h4>Full Stack Developer</h4>
+                    <p>John builds robust backends and elegant frontends, ensuring seamless functionality.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://picsum.photos/200/200?random=person3" alt="Team Member 3">
+                    <h3>Emily White</h3>
+                    <h4>Marketing Strategist</h4>
+                    <p>Emily drives growth and engagement with her innovative and data-driven marketing approaches.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://picsum.photos/200/200?random=person4" alt="Team Member 4">
+                    <h3>David Green</h3>
+                    <h4>Project Manager</h4>
+                    <p>David ensures every project runs smoothly, on time, and within budget.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-testimonials" id="testimonials">
+        <div class="container">
+            <h1>What Our Clients Say</h1>
+            <div class="testimonial-carousel">
+                <div class="quotes-display">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="quote-text" id="quoteText">
+                        "Our experience with this team was exceptional. They transformed our vision into a stunning reality,
+                        exceeding all our expectations. Truly professional and highly skilled!"
+                    </p>
+                    <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <p class="author-name" id="authorName">- Sarah Chen, CEO of InnovateCorp</p>
+
+                <div class="carousel-navigation">
+                    <i class="fas fa-chevron-left carousel-arrow" id="prevTestimonial"></i>
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                    <i class="fas fa-chevron-right carousel-arrow" id="nextTestimonial"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-contact" id="contact">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p class="section-description">
+                Have a project in mind or just want to say hello? Fill out the form below and we'll get back to you!
+            </p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
-            <section class="submit">SUBMIT</section>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <h3 class="col-md-6">CREATED BY V.Karthik</h3>
-            <h3 class="col-md-6">COPYRIGHT © 2025</h3>
-            <ul class="col-md-6">
-              <li><a href="https://facebook.com/"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://github.com/"><i class="fa fa-github"></i></a></li>
-              <li><a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We are a creative agency dedicated to crafting beautiful and functional digital solutions.</p>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Digital Street, Creative City, CA 90210</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@yourdomain.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#work">Portfolio</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
-          </footer>
+            <div class="footer-bottom">
+                <p>&copy; 2026 My Awesome Portfolio. All rights reserved. Made with <i class="fas fa-heart"></i> by KarthikCodingSolutions
+                    .</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>

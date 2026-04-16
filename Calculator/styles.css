@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
 }
 
 header {
@@ -24,6 +25,11 @@ header nav ul li {
 header nav a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffd700; /* Gold on hover */
 }
 
 main {
@@ -40,6 +46,14 @@ main {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
+    max-width: 900px; /* Max width for content */
+    border-radius: 8px;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 .calculator {
@@ -49,107 +63,227 @@ main {
 }
 
 #display {
-    width: 100%;
-    height: 40px;
-    font-size: 24px;
+    width: calc(100% - 20px); /* Account for padding */
+    height: 60px; /* Taller display */
+    font-size: 32px; /* Larger font */
     padding: 10px;
-    border: none;
+    border: 2px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    margin-bottom: 20px;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 400px; /* Limit calculator button width */
 }
 
 .btn {
-    padding: 10px;
-    font-size: 18px;
+    padding: 15px; /* More padding for buttons */
+    font-size: 20px; /* Larger font */
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #f0f0f0;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .btn:hover {
     background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    background-color: #d0d0d0;
+    transform: translateY(0);
+}
+
+/* Specific styling for operator buttons */
+.buttons button:nth-child(4n), /* / */
+.buttons button:nth-child(8n), /* * */
+.buttons button:nth-child(12n), /* - */
+.buttons button:nth-child(23) { /* + */
+    background-color: #ff9500;
+    color: #fff;
+}
+
+.buttons button:nth-child(4n):hover,
+.buttons button:nth-child(8n):hover,
+.buttons button:nth-child(12n):hover,
+.buttons button:nth-child(23):hover {
+    background-color: #e68a00;
+}
+
+/* Clear button */
+.buttons button:nth-child(1) { /* C */
+    background-color: #ff3b30;
+    color: #fff;
+}
+.buttons button:nth-child(1):hover {
+    background-color: #e0322b;
 }
 
 .unit-conversion {
-    margin-top: 20px;
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center;
+    gap: 10px; /* Spacing between conversion elements */
 }
 
-.unit-conversion select {
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0f0;
+.unit-conversion h3 {
+    width: 100%; /* Make heading take full width */
+    margin-bottom: 10px;
 }
 
+.unit-conversion select,
 .unit-conversion input[type="number"] {
     padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0e0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    flex-grow: 1; /* Allow these elements to grow */
+    min-width: 120px; /* Minimum width before wrapping */
+}
+
+.unit-conversion button.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.unit-conversion button.btn:hover {
+    background-color: #0056b3;
 }
 
 .history {
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
 #history-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 150px; /* Limit history height */
+    overflow-y: auto; /* Scroll for long history */
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#history-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 14px;
+    color: #555;
+}
+
+#history-list li:last-child {
+    border-bottom: none;
 }
 
 #matrix-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+#matrix-container div { /* For matrix rows */
+    display: flex;
+    gap: 5px;
 }
 
 #matrix-container input[type="number"] {
+    width: 60px; /* Fixed width for matrix cells */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#stats-input, #matrix-size, #graph-input {
+    width: calc(100% - 20px);
     padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0e0;
-    margin: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 #stats-result, #matrix-result {
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
     font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0e0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
 }
 
 #graph-container {
+    /* Plotly.js will manage its own canvas within this div */
     width: 100%;
     height: 400px;
     border: 1px solid #ddd;
     margin-top: 20px;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
+    padding: 15px;
     width: 100%;
+    box-sizing: border-box;
+    margin-top: 30px; /* Space from main content */
 }
 footer p {
-    margin: 0;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Visually hidden utility class */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 /* Media queries for various screen widths */
@@ -167,7 +301,13 @@ footer p {
         width: 90%;
     }
     .buttons {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* Keep 4 columns for tablets */
+        max-width: unset; /* Allow buttons to take more width */
+    }
+    .unit-conversion select,
+    .unit-conversion input[type="number"],
+    .unit-conversion button.btn {
+        flex-basis: auto; /* Allow more flexible sizing */
     }
 }
 
@@ -179,6 +319,7 @@ footer p {
     header nav ul li {
         display: block;
         margin-right: 0;
+        margin-bottom: 5px;
     }
     main {
         padding: 10px;
@@ -188,27 +329,39 @@ footer p {
         padding: 10px;
     }
     .buttons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller mobiles */
     }
     #display {
-        font-size: 18px;
+        font-size: 24px;
+        height: 50px;
     }
     .btn {
-        padding: 5px;
-        font-size: 16px;
+        padding: 10px;
+        font-size: 18px;
+    }
+    .unit-conversion {
+        flex-direction: column; /* Stack conversion elements */
+        align-items: center;
+    }
+    .unit-conversion select,
+    .unit-conversion input[type="number"],
+    .unit-conversion button.btn {
+        width: 100%; /* Full width for stacked elements */
+        margin-bottom: 5px;
+    }
+    #matrix-container div {
+        flex-wrap: wrap; /* Allow matrix cells to wrap */
+        justify-content: center;
+    }
+    #matrix-container input[type="number"] {
+        width: 45px; /* Smaller width for matrix cells */
+        font-size: 14px;
     }
 }
 
 /* Extra small screens (small mobile devices) */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 400px) {
     .buttons {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    #display {
-        font-size: 16px;
-    }
-    .btn {
-        padding: 5px;
-        font-size: 14px;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for very small screens */
     }
 }

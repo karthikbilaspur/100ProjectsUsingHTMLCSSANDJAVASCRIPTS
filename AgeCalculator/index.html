@@ -3,83 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dating App</title>
+    <title>❤️ Dating App by KarthikCCodingSolutions ❤️</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <header>
+            <h1 class="app-title"><i class="fas fa-heartbeat"></i> Find Your Match!</h1>
+            <p class="app-tagline">Welcome to KarthikCCodingSolutions' Dating App</p>
+        </header>
+
+        <!-- Multi-Level Form for Profile Creation -->
         <div class="form-container">
             <div class="progress-bar">
                 <div class="progress-bar-fill" id="progress-bar-fill"></div>
             </div>
             <form id="multi-level-form">
                 <div class="form-step" id="step-1">
-                    <h2>Step 1: Basic Information</h2>
+                    <h2>Step 1: Basic Information <i class="fas fa-user-circle"></i></h2>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name"><br><br>
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" name="age"><br><br>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+                    <label for="birthdate">Birthdate:</label>
+                    <input type="date" id="birthdate" name="birthdate" required max="2008-01-01"><br><br>
+
+                    <label for="age">Age (Calculated):</label>
+                    <input type="text" id="age" name="age" readonly placeholder="Calculated from birthdate"><br><br>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select><br><br>
+
                     <label for="bio">Bio:</label>
-                    <textarea id="bio" name="bio"></textarea><br><br>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us a little about yourself..."></textarea><br><br>
+
                     <label for="interests">Interests:</label>
                     <select id="interests" name="interests" multiple>
                         <option value="reading">Reading</option>
                         <option value="hiking">Hiking</option>
                         <option value="cooking">Cooking</option>
                         <option value="traveling">Traveling</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="music">Music</option>
+                        <option value="movies">Movies</option>
+                        <option value="art">Art</option>
+                        <option value="sports">Sports</option>
+                        <option value="pets">Pets</option>
                     </select><br><br>
-                    <button id="next-step-1">Next</button>
+                    <button type="button" id="next-step-1" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
                 </div>
-                <div class="form-step" id="step-2" style="display: none;">
-                    <h2>Step 2: Likes and Dislikes</h2>
+                <div class="form-step" id="step-2">
+                    <h2>Step 2: Preferences <i class="fas fa-thumbs-up"></i></h2>
                     <label for="likes">Likes:</label>
-                    <input type="text" id="likes" name="likes"><br><br>
+                    <input type="text" id="likes" name="likes" placeholder="e.g., Coffee, Sunsets, Indie Music"><br><br>
+
                     <label for="dislikes">Dislikes:</label>
-                    <input type="text" id="dislikes" name="dislikes"><br><br>
-                    <button id="prev-step-1">Previous</button>
-                    <button id="next-step-2">Next</button>
+                    <input type="text" id="dislikes" name="dislikes" placeholder="e.g., Loud noises, Spiders, Mondays"><br><br>
+
+                    <label for="looking-for">Looking For:</label>
+                    <select id="looking-for" name="looking-for" required>
+                        <option value="">Select Preference</option>
+                        <option value="friends">Friends</option>
+                        <option value="short-term">Short-term Relationship</option>
+                        <option value="long-term">Long-term Relationship</option>
+                        <option value="casual">Casual</option>
+                    </select><br><br>
+
+                    <div class="form-navigation">
+                        <button type="button" id="prev-step-1" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" id="next-step-2" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
-                <div class="form-step" id="step-3" style="display: none;">
-                    <h2>Step 3: Upload Pictures</h2>
-                    <input type="file" id="pics" name="pics" multiple><br><br>
-                    <button id="prev-step-2">Previous</button>
-                    <button id="submit-form">Submit</button>
+                <div class="form-step" id="step-3">
+                    <h2>Step 3: Upload Photos <i class="fas fa-camera"></i></h2>
+                    <input type="file" id="pics" name="pics" multiple accept="image/*" class="file-input"><br><br>
+                    <p class="file-note">Upload up to 10 pictures. First picture will be your profile photo!</p>
+                    <div class="form-navigation">
+                        <button type="button" id="prev-step-2" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="submit" id="submit-form" class="btn btn-success"><i class="fas fa-check"></i> Create Profile</button>
+                    </div>
                 </div>
             </form>
         </div>
-        <div class="card-container" style="display: none;">
+
+        <!-- Profile Card Display -->
+        <div class="card-container">
             <div class="card">
-                <h2 id="card-name"></h2>
-                <p id="card-age"></p>
+                <div class="profile-header">
+                    <img id="card-profile-pic" src="placeholder.jpg" alt="Profile Picture">
+                    <h2 id="card-name"></h2>
+                    <p id="card-age"></p>
+                    <p id="card-gender"></p>
+                </div>
                 <p id="card-bio"></p>
                 <h3>Interests:</h3>
-                <ul id="card-interests"></ul>
-                <h3>Likes:</h3>
-                <p id="card-likes"></p>
-                <h3>Dislikes:</h3>
-                <p id="card-dislikes"></p>
-                <div id="pics-container" class="pics-container"></div>
-                <button id="swipe-left-btn" class="swipe-btn">Swipe Left</button>
-                <button id="swipe-right-btn" class="swipe-btn">Swipe Right</button>
-                <button id="favorite-btn" class="favorite-btn">Favorite</button>
-                <button id="message-btn" class="message-btn">Message</button>
+                <ul id="card-interests" class="interests-list"></ul>
+                <h3>Preferences:</h3>
+                <p id="card-likes" class="detail-item"></p>
+                <p id="card-dislikes" class="detail-item"></p>
+                <p id="card-looking-for" class="detail-item"></p>
+                <div id="pics-container" class="pics-gallery"></div>
+                <div class="card-actions">
+                    <button id="swipe-left-btn" class="swipe-btn action-dislike"><i class="fas fa-times"></i> Nope</button>
+                    <button id="favorite-btn" class="action-favorite"><i class="fas fa-star"></i> Favorite</button>
+                    <button id="swipe-right-btn" class="swipe-btn action-like"><i class="fas fa-heart"></i> Like</button>
+                    <button id="message-btn" class="action-message"><i class="fas fa-comment-dots"></i> Message</button>
+                    <button id="view-matches-btn" class="action-matches"><i class="fas fa-users"></i> My Matches</button>
+                </div>
             </div>
         </div>
-        <div class="matches-container" style="display: none;">
-            <h2>Matches</h2>
-            <div id="matches-list"></div>
+
+        <!-- Matches List -->
+        <div class="matches-container">
+            <h2>Your Matches <i class="fas fa-user-friends"></i></h2>
+            <div id="matches-list">
+                <p>No matches yet. Keep swiping!</p>
+            </div>
+            <button class="btn btn-secondary" id="back-to-card-from-matches"><i class="fas fa-arrow-left"></i> Back to Profile</button>
         </div>
-        <div class="chat-container" style="display: none;">
-            <h2>Chat with <span id="chat-name"></span></h2>
-            <input type="text" id="chat-input" placeholder="Type a message...">
-            <button id="send-msg-btn">Send</button>
+
+        <!-- Chat Interface -->
+        <div class="chat-container">
+            <h2>Chat with <span id="chat-name"></span> <i class="fas fa-comments"></i></h2>
             <div id="chat-log"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message..." class="chat-input">
+                <button id="send-msg-btn" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+            <button class="btn btn-secondary" id="back-to-card-from-chat"><i class="fas fa-arrow-left"></i> Back to Profile</button>
         </div>
     </div>
 
     <script src="script.js"></script>
     <footer>
-        <p>&copy; 2025 Dating App</p> 
+        <p>&copy; 2026 KarthikCCodingSolutions. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart"></i> for awesome connections!</p>
     </footer>
 </body>
 </html>

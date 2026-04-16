@@ -7,10 +7,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add some basic styles for the loading spinner */
+        .loading-spinner {
+            display: none; /* Hidden by default */
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Image Gallery</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,87 +45,97 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto social-icons">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link" href="https://www.facebook.com" target="_blank" rel ="noopener noreferrer" tite="facebook"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="nav-link" href="https://www.twitter.com" target="_blank" rel ="noopener noreferrer" title="twitter"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="nav-link" href="https://www.instagram.com" target="_blank" rel ="noopener noreferrer" title="instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
     <div class="container mt-5">
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <input type="search" id="search-input" class="form-control form-control-lg" placeholder="Search images...">
+            </div>
+            <div class="col-md-4 text-right">
+                <button id="randomize-btn" class="btn btn-info btn-lg mr-2"><i class="fas fa-random"></i> Randomize</button>
+                <button id="upload-btn" class="btn btn-success btn-lg"><i class="fas fa-upload"></i> Upload Image</button>
+                <input type="file" id="image-upload" accept="image/*" title="Upload Image">
+            </div>
+        </div>
+
         <div class="row">
-            <div class="col-md-12">
-                <input type="search" id="search-input" class="form-control" placeholder="Search images...">
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <button id="randomize-btn" class="btn btn-primary"><i class="fas fa-random"></i> Randomize</button>
-                <button id="upload-btn" class="btn btn-success"><i class="fas fa-upload"></i> Upload Image</button>
-                <input type="file" id="image-upload" style="display: none;">
-            </div>
-        </div>
-        <div class="row mt-3">
             <div class="col-md-12">
                 <div class="gallery" id="gallery">
                     <!-- images will be generated here -->
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <button id="load-more-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> Load More</button>
+
+        <div class="loading-spinner" id="loading-spinner"></div>
+
+        <div class="row mt-4 mb-5">
+            <div class="col-md-12 text-center">
+                <button id="load-more-btn" class="btn btn-primary btn-lg"><i class="fas fa-plus"></i> Load More</button>
             </div>
         </div>
+
         <div class="lightbox" id="lightbox">
-            <img id="lightbox-img">
-            <p id="lightbox-description"></p>
-            <button id="close-lightbox" class="btn btn-danger"><i class="fas fa-times"></i> Close</button>
-            <button id="prev-img" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Prev</button>
-            <button id="next-img" class="btn btn-primary"><i class="fas fa-chevron-right"></i> Next</button>
-            <button id="download-btn" class="btn btn-success"><i class="fas fa-download"></i> Download</button>
-            <button id="share-btn" class="btn btn-secondary"><i class="fas fa-share"></i> Share</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" class="img-fluid" title="Image Title"  alt="Image Discription" >
+                <p id="lightbox-description" class="text-white mt-3"></p>
+                <div class="lightbox-controls">
+                    <button id="close-lightbox" class="btn btn-light"><i class="fas fa-times"></i> Close</button>
+                    <button id="prev-img" class="btn btn-light"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <button id="next-img" class="btn btn-light"><i class="fas fa-chevron-right"></i> Next</button>
+                    <button id="download-btn" class="btn btn-light"><i class="fas fa-download"></i> Download</button>
+                    <button id="share-btn" class="btn btn-light"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
         </div>
     </div>
-    <footer class="footer mt-5">
+    <footer class="footer mt-5 py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <h5>About Us</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    <p>Welcome to our image gallery! We provide a beautiful collection of images for your inspiration and enjoyment.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Follow Us</h5>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <h5>Connect With Us</h5>
+                    <ul class="list-inline social-icons">
+                        <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank" rel ="noopener noreferrer" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.twitter.com" target="_blank" rel ="noopener noreferrer" title="twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank" rel ="noopener noreferrer" title="instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com" target="_blank" rel ="noopener noreferrer" title="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-md-12 text-center">
-                    <p>&copy; 2025 Image Gallery. All rights reserved.</p>
+                    <p class="mb-0">&copy; <span id="current-year"></span> KarthikCodingSolutions. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
